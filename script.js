@@ -129,7 +129,7 @@ if (canvas) {
 
       if (p.y < 0) {
         p.y = canvas.height;
-        p.x = Math.random() * canvas.width;
+        p.x += Math.sin(p.y * 0.01) * 0.2;
       }
 
       ctx.beginPath();
