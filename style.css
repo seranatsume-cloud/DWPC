@@ -1,4 +1,5 @@
-body {
+body:not(.home) .main {
+  height: auto;
   margin: 0;
   background: #0a0014;
   overflow-x: hidden;
@@ -123,4 +124,23 @@ nav a:hover::after {
 
 .swiper-pagination-bullet-active {
   background: #a855f7;
+}
+/* ポートフォリオ専用 */
+.portfolio-container {
+  padding-top: 150px;
+  text-align: center;
+}
+
+.portfolio-title {
+  font-size: 40px;
+  margin-bottom: 40px;
+  letter-spacing: 5px;
+  color: #a855f7;
+}
+
+/* スライダー位置調整 */
+.swiper {
+  width: 100%;
+  max-width: 1000px;
+  margin: auto;
 }
