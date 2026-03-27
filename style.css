@@ -66,17 +66,16 @@ nav a:hover::after {
   max-width: 400px;
   transition: all 0.4s ease;
 
-  filter: drop-shadow(0 0 10px #a855f7)
-          drop-shadow(0 0 20px #a855f7);
+  filter: drop-shadow(0 0 20px #a855f7)
+          drop-shadow(0 0 40px #a855f7);
 }
 
-/* ホバー */
+/* 超わかりやすくする */
 .logo:hover {
-  transform: scale(1.1);
-  filter: drop-shadow(0 0 20px #c084fc)
-          drop-shadow(0 0 50px #a855f7);
+  transform: scale(1.15);
+  filter: drop-shadow(0 0 30px #c084fc)
+          drop-shadow(0 0 80px #a855f7);
 }
-
 /* ===== About ===== */
 
 .about-container {
