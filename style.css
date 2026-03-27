@@ -104,6 +104,7 @@ nav a:hover::after { width: 100%; }
   padding: 140px 20px 80px;
 
   display: flex;
+  flex-direction: column; /* ←これ重要 */
   justify-content: center;
   align-items: flex-start; /* ←ズレ防止 */
 }
