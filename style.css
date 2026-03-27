@@ -90,11 +90,9 @@ nav a:hover::after {
 
 /* ===== About ===== */
 .about-container {
-  min-height: 100vh;
-  padding-top: 120px;
   display: flex;
-  justify-content: center;
-  gap: 80px;
+  gap: 60px;
+  margin-top: 30px;
 }
 
 .about-image {
@@ -197,4 +195,28 @@ nav a:hover::after {
     inset 0 0 20px rgba(168,85,247,0.15);
 
   text-align: center;
+}
+.links-container {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.link-item {
+  padding: 15px;
+  border-radius: 10px;
+
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+
+  text-decoration: none;
+  color: #c084fc;
+
+  transition: 0.3s;
+}
+
+.link-item:hover {
+  background: rgba(168,85,247,0.2);
+  transform: translateY(-3px);
 }
