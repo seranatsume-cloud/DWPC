@@ -92,7 +92,6 @@ nav a:hover::after {
   filter: drop-shadow(0 0 80px #c084fc)
           drop-shadow(0 0 120px #a855f7);
 }
-
 #intro {
   pointer-events: auto;
 }
