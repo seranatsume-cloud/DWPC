@@ -1,67 +1,95 @@
 body {
   margin: 0;
   background: black;
-  color: #e0dfff;
-  font-family: sans-serif;
   overflow: hidden;
+  font-family: sans-serif;
 }
 
-/* 背景画像 */
-body::before {
+/* ナビ */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 20px;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(10px);
+  z-index: 10;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+nav a {
+  color: #c084ff;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+nav a:hover {
+  text-shadow: 0 0 10px #a855f7;
+}
+
+/* ロゴ中央 */
+.main {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  width: 300px;
+  filter: drop-shadow(0 0 20px #a855f7);
+}
+
+/* 背景スライド */
+.bg {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  z-index: -2;
+  animation: slide 15s infinite;
+}
+
+@keyframes slide {
+  0% { background-image: url("bg1.jpg"); }
+  33% { background-image: url("bg2.jpg"); }
+  66% { background-image: url("bg3.jpg"); }
+}
+
+/* 黒フィルター */
+.bg::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+}
+
+/* 雨みたいなやつ */
+body::after {
   content: "";
   position: fixed;
   width: 100%;
   height: 100%;
-  background: url("https://picsum.photos/1920/1080") center/cover;
-  opacity: 0.2;
+  background: repeating-linear-gradient(
+    180deg,
+    rgba(192,132,255,0.1) 0px,
+    rgba(192,132,255,0.1) 2px,
+    transparent 2px,
+    transparent 6px
+  );
+  animation: rain 0.3s linear infinite;
   z-index: -1;
 }
 
-/* レイアウト */
-.container {
-  display: flex;
-  height: 100vh;
-}
-
-.left {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding-left: 10%;
-}
-
-.right {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 30px;
-}
-
-/* ロゴ */
-.logo {
-  font-size: 4rem;
-  color: #c084ff;
-  letter-spacing: 5px;
-  text-shadow: 0 0 10px #a855f7;
-}
-
-.sub {
-  opacity: 0.6;
-}
-
-/* ナビ */
-.right a {
-  font-size: 1.5rem;
-  color: #e0dfff;
-  text-decoration: none;
-  transition: 0.3s;
-}
-
-.right a:hover {
-  color: #c084ff;
-  text-shadow: 0 0 10px #a855f7;
+@keyframes rain {
+  from { transform: translateY(0); }
+  to { transform: translateY(10px); }
 }
 
 /* グリッチ */
@@ -69,12 +97,10 @@ body::before {
   position: fixed;
   width: 100%;
   height: 100%;
-  background: repeating-linear-gradient(
-    0deg,
-    rgba(255,255,255,0.05),
-    rgba(255,255,255,0.05) 1px,
-    transparent 1px,
-    transparent 2px
+  background: white;
+  opacity: 0;
+  z-index: 999;
+}
   );
   opacity: 0;
   pointer-events: none;
