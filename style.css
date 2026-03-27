@@ -322,36 +322,50 @@ nav a:hover::after {
   justify-content: center;
 }
 
-/* ===== 戻るボタン ===== */
-.footer-ui {
-  text-align: center;
-  margin-top: 60px;
-  padding-bottom: 40px;
-}
+/* ===== 上に戻るボタン ===== */
+.back-to-top {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
 
-.footer-title {
-  font-size: 20px;
-  letter-spacing: 3px;
-}
+  width: 50px;
+  height: 50px;
 
-.footer-sub {
-  font-size: 12px;
-  opacity: 0.6;
-  margin-bottom: 20px;
-}
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-.back-top {
-  display: inline-block;
-  padding: 10px 20px;
-  border-radius: 10px;
-
-  border: 1px solid #a855f7;
+  font-size: 22px;
   color: #c084fc;
-  text-decoration: none;
 
+  border-radius: 12px;
+
+  background: rgba(20, 10, 30, 0.6);
+  backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(168, 85, 247, 0.3);
+
+  cursor: pointer;
   transition: 0.3s;
+
+  z-index: 999;
 }
 
-.back-top:hover {
-  background: rgba(168,85,247,0.2);
+/* ホバーで発光 */
+.back-to-top:hover {
+  box-shadow:
+    0 0 15px rgba(168, 85, 247, 0.8),
+    0 0 30px rgba(168, 85, 247, 0.5);
+  transform: translateY(-3px);
+}
+
+/* ===== ガラスUIホバー強化 ===== */
+.portfolio-card:hover,
+.about-card:hover,
+.links-card:hover,
+.company-card:hover {
+  box-shadow:
+    0 0 30px rgba(168, 85, 247, 0.4),
+    0 0 80px rgba(168, 85, 247, 0.2);
+  border: 1px solid rgba(168, 85, 247, 0.5);
 }
