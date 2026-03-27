@@ -87,3 +87,17 @@ nav {
   border-left: 2px solid #a855f7;
   padding-left: 15px;
 }
+.about-container {
+  animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
