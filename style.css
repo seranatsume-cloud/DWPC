@@ -1,7 +1,7 @@
 body {
   margin: 0;
   background: black;
-  overflow: hidden;
+  overflow-x: hidden; /* ←横だけ制限（縦スクロールOK） */
   color: white;
 }
 
@@ -26,6 +26,7 @@ header {
   top: 70px;
   width: 100%;
   text-align: center;
+  z-index: 10;
 }
 
 nav {
@@ -118,8 +119,9 @@ body::after {
   align-items: center;
   justify-content: center;
   gap: 80px;
-  height: 100vh;
-  padding: 0 10%;
+  min-height: 100vh;
+  padding: 120px 10% 50px; /* ←上に余白追加（ナビと被らない） */
+  box-sizing: border-box;
 }
 
 /* 画像エリア */
