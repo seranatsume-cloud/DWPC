@@ -5,9 +5,13 @@
 
 body {
   margin: 0;
-  background: #0a0a0f;
+
+  /* 深い黒＋ほんのり紫 */
+  background:
+    radial-gradient(circle at 50% 20%, rgba(168,85,247,0.15), transparent 60%),
+    #0a0a0f;
+
   color: white;
-  font-family: "aosagi", sans-serif;
 }
 
 /* ===== イントロ ===== */
@@ -143,15 +147,23 @@ nav a:hover::after {
 .swiper-slide {
   width: 280px;
   height: 180px;
+
   border-radius: 15px;
-  background: #111;
+  overflow: hidden;
+
+  /* ガラスっぽい */
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+
   opacity: 0.4;
   transition: 0.4s;
 }
 
 .swiper-slide-active {
-  transform: scale(1.1);
+  transform: scale(1.15);
   opacity: 1;
+
+  box-shadow: 0 0 30px rgba(168,85,247,0.6);
 }
 
 .slide-dummy {
@@ -160,4 +172,29 @@ nav a:hover::after {
   align-items: center;
   justify-content: center;
   color: #c084fc;
+}
+/* ===== ガラスUI（強化版） ===== */
+.portfolio-card {
+  width: 90%;
+  max-width: 900px;
+  padding: 40px;
+
+  border-radius: 25px;
+
+  /* ✨ ガラス感 */
+  background: rgba(255, 255, 255, 0.05);
+
+  /* ✨ 背景ぼかし（超重要） */
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  /* ✨ 枠 */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  /* ✨ 浮き上がり影 */
+  box-shadow:
+    0 8px 40px rgba(0,0,0,0.6),
+    inset 0 0 20px rgba(168,85,247,0.15);
+
+  text-align: center;
 }
