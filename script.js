@@ -1,6 +1,6 @@
+// イントロ
 const intro = document.getElementById("intro");
 
-// クリックで消える
 if (intro) {
   intro.addEventListener("click", () => {
     intro.style.transition = "1s";
@@ -12,48 +12,52 @@ if (intro) {
   });
 }
 
-// グリッチ文字
+// グリッチ
 const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
 
 document.querySelectorAll(".glitch-text").forEach(el => {
   let interval = null;
   const original = el.innerText;
 
-  // カーソル乗ったらバグ開始
   el.addEventListener("mouseenter", () => {
     interval = setInterval(() => {
       el.innerText = original
         .split("")
-.map((letter) => {
-  return Math.random() > 0.6
-    ? letter
-    : letters[Math.floor(Math.random() * letters.length)];
-})
+        .map(letter =>
+          Math.random() > 0.6
+            ? letter
+            : letters[Math.floor(Math.random() * letters.length)]
+        )
         .join("");
-    }, 80); // ←速さ調整
+    }, 80);
   });
 
-  // カーソル外したら元に戻す
   el.addEventListener("mouseleave", () => {
     clearInterval(interval);
     el.innerText = original;
   });
 });
-const swiper = new Swiper(".mySwiper", {
-  loop: true,
-  centeredSlides: true,
-  slidesPerView: "auto",
-  spaceBetween: 20,
 
-  autoplay: {
-    delay: 3000,
-    disableOnInteraction: false,
-  },
+// Swiper
+window.addEventListener("load", () => {
+  if (document.querySelector(".mySwiper")) {
+    new Swiper(".mySwiper", {
+      loop: true,
+      centeredSlides: true,
+      slidesPerView: "auto",
+      spaceBetween: 20,
 
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-  },
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+      },
 
-  grabCursor: true,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+
+      grabCursor: true,
+    });
+  }
 });
