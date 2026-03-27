@@ -39,3 +39,21 @@ document.querySelectorAll(".glitch-text").forEach(el => {
     el.innerText = original;
   });
 });
+const swiper = new Swiper(".mySwiper", {
+  loop: true,
+  centeredSlides: true,
+  slidesPerView: "auto",
+  spaceBetween: 20,
+
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: false,
+  },
+
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+
+  grabCursor: true,
+});
