@@ -132,6 +132,11 @@ body::after {
 }
 
 @font-face {
+.glitch-text {
+  display: inline-block;
+  transition: 0.3s;
+}
+  
   font-family: "aosagi";
   src: url("aosagi.ttf");
 }
