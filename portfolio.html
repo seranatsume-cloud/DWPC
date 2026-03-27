@@ -1,28 +1,54 @@
-<!-- Swiper -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>Portfolio - 深界製薬</title>
+
+<link rel="stylesheet" href="style.css">
+
+<!-- Swiper CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 
+</head>
+
+<body>
+
+<header>
+  <nav>
+    <a href="index.html" class="glitch-text">TOP</a>
+    <a href="about.html" class="glitch-text">About</a>
+    <a href="portfolio.html" class="glitch-text">Portfolio</a>
+    <a href="links.html" class="glitch-text">Links</a>
+  </nav>
+</header>
+
+<!-- 🔥 スライダー -->
 <div class="swiper mySwiper">
   <div class="swiper-wrapper">
 
-    <a href="https://example.com/1" class="swiper-slide">
-      <img src="img1.jpg" />
-      <div class="slide-title">作品タイトル1</div>
+    <a href="#" class="swiper-slide">
+      <img src="images/img1.jpg">
+      <div class="slide-title">実験記録01</div>
     </a>
 
-    <a href="https://example.com/2" class="swiper-slide">
-      <img src="img2.jpg" />
-      <div class="slide-title">作品タイトル2</div>
+    <a href="#" class="swiper-slide">
+      <img src="images/img2.jpg">
+      <div class="slide-title">実験記録02</div>
     </a>
 
-    <a href="https://example.com/3" class="swiper-slide">
-      <img src="img3.jpg" />
-      <div class="slide-title">作品タイトル3</div>
+    <a href="#" class="swiper-slide">
+      <img src="images/img3.jpg">
+      <div class="slide-title">実験記録03</div>
     </a>
 
   </div>
 
-  <!-- ドット -->
   <div class="swiper-pagination"></div>
 </div>
 
+<!-- JS順番重要 -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
