@@ -79,12 +79,12 @@ nav a:hover::after {
 
 /* ===== ロゴ ===== */
 .logo {
-  width: 30vw;
-  max-width: 400px;
+  width: 50vw;       /* ←これ大事 */
+  max-width: 700px; /* ←でかくする */
   transition: all 0.4s ease;
 
-  filter: drop-shadow(0 0 20px #a855f7)
-          drop-shadow(0 0 40px #a855f7);
+  filter: drop-shadow(0 0 30px #a855f7)
+          drop-shadow(0 0 60px #a855f7);
 }
 
 .logo:hover {
