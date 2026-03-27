@@ -39,10 +39,7 @@ nav a {
 
 /* スライダー */
 .swiper {
-  width: 90%;
-  max-width: 900px;
-  height: 300px;
-  margin: auto;
+  height: 260px;
 }
 
 /* 🔥 これ重要（強制で動かす） */
@@ -50,16 +47,6 @@ nav a {
   display: flex;
 }
 
-.swiper-slide {
-  width: 300px;
-  height: 200px;
-  background: #111;
-  border-radius: 16px;
-  overflow: hidden;
-  position: relative;
-  opacity: 0.5;
-  transition: 0.4s;
-}
 
 /* ダミー */
 .slide-dummy {
