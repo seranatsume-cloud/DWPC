@@ -40,16 +40,24 @@ document.querySelectorAll(".glitch-text").forEach(el => {
   });
 });
 
-// Swiper
-window.addEventListener("load", () => {
+// Swiper（確実に動く版）
+document.addEventListener("DOMContentLoaded", () => {
   if (document.querySelector(".mySwiper")) {
     new Swiper(".mySwiper", {
       loop: true,
       centeredSlides: true,
       slidesPerView: "auto",
       spaceBetween: 20,
-      autoplay: { delay: 3000 },
-      pagination: { el: ".swiper-pagination", clickable: true },
+
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+      },
+
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
     });
   }
 });
