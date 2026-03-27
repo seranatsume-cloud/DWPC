@@ -1,17 +1,40 @@
 const intro = document.getElementById("intro");
 
-// クリックで消す
+// クリックで消える
 if (intro) {
   intro.addEventListener("click", () => {
-    intro.style.display = "none";
+    intro.style.transition = "1s";
+    intro.style.opacity = "0";
+
+    setTimeout(() => {
+      intro.style.display = "none";
+    }, 1000);
   });
 }
 
-// 動画（あるときだけ）
-const video = document.getElementById("introVideo");
+// グリッチ文字
+const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
 
-if (video) {
-  video.onended = () => {
-    intro.style.display = "none";
-  };
-}
+document.querySelectorAll(".glitch-text").forEach(el => {
+  el.addEventListener("mouseover", () => {
+    let iteration = 0;
+    const original = el.innerText;
+
+    const interval = setInterval(() => {
+      el.innerText = original
+        .split("")
+        .map((letter, index) => {
+          if (index < iteration) return original[index];
+          return letters[Math.floor(Math.random() * letters.length)];
+        })
+        .join("");
+
+      iteration += 1 / 2;
+
+      if (iteration >= original.length) {
+        clearInterval(interval);
+        el.innerText = original;
+      }
+    }, 20);
+  });
+});
