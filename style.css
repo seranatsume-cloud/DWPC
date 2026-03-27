@@ -229,33 +229,50 @@ nav a:hover::after { width: 100%; }
 img {
   max-width: 100%;
 }
+/* ===== Aboutレイアウト ===== */
 .about-inner {
   display: flex;
   gap: 60px;
   align-items: center;
 }
 
+/* 立ち絵エリア */
 .about-image {
   width: 350px;
   height: 350px;
   border: 1px solid #a855f7;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
+  font-size: 20px;
+  color: #aaa;
 }
 
+/* テキスト */
 .about-text {
   flex: 1;
 }
 
+/* プロフィール */
 .profile-list p {
   margin: 6px 0;
 }
 
-.work-section {
-  margin-top: 60px;
+/* 🔥 自己紹介右寄せ */
+.about-description {
+  text-align: right;
+  line-height: 1.8;
+  color: #ddd;
 }
 
+/* ===== 制作物（別カード） ===== */
+.work-card {
+  margin-top: 40px;
+}
+
+/* アイテム */
 .work-item {
   display: flex;
   gap: 20px;
@@ -268,8 +285,26 @@ img {
   background: rgba(255,255,255,0.05);
 }
 
-.work-item img {
-  width: 60px;
-  height: 60px;
+/* 🔥 アイコン大きめ */
+.work-icon {
+  width: 80px;
+  height: 80px;
+
+  border-radius: 12px;
+  background: rgba(0,0,0,0.4);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 14px;
+  color: #aaa;
+}
+
+/* ===== フッター ===== */
+.footer-area {
+  text-align: center;
+  margin-top: 40px;
+}
   border-radius: 10px;
 }
