@@ -144,9 +144,10 @@ body::after {
 
 /* プレースホルダー（入力欄っぽい見た目） */
 .placeholder {
-  color: rgba(255, 255, 255, 0.3);
+  color: #fff; /* ←完全な白 */
   font-size: 18px;
   line-height: 1.8;
   border-left: 2px solid #fff;
   padding-left: 15px;
 }
+
