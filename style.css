@@ -70,7 +70,8 @@ nav a:hover::after {
 
 /* ロゴ */
 .logo {
-  width: 420px;
+  width: 40vw;
+  maxwidth: 500px;
   animation: float 6s ease-in-out infinite;
   filter: drop-shadow(0 0 10px #a855f7);
 }
