@@ -83,9 +83,9 @@ nav a:hover::after { width: 100%; }
 
   display: flex;
   justify-content: center;
-  align-items: center; /* ←これが超重要 */
-}
 
+  align-items: flex-start; /* ←これに変更 */
+}
 /* ===== ガラスUI ===== */
 .glass-card {
   width: 100%;
