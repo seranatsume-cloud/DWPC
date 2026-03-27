@@ -9,6 +9,9 @@ body {
   font-family: "aosagi", sans-serif;
   color: white;
   overflow-x: hidden;
+  position: relative;
+  z-index: 1;
+
 
   /* 🌊 深海ベース（紫控えめ） */
   background:
