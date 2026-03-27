@@ -1,26 +1,28 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-<meta charset="UTF-8">
-<title>About</title>
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
+<!-- Swiper -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 
-<div class="container">
-  <div class="left">
-    <h1>About</h1>
-    <p>ここに中の人の紹介を書く</p>
+<div class="swiper mySwiper">
+  <div class="swiper-wrapper">
+
+    <a href="https://example.com/1" class="swiper-slide">
+      <img src="img1.jpg" />
+      <div class="slide-title">作品タイトル1</div>
+    </a>
+
+    <a href="https://example.com/2" class="swiper-slide">
+      <img src="img2.jpg" />
+      <div class="slide-title">作品タイトル2</div>
+    </a>
+
+    <a href="https://example.com/3" class="swiper-slide">
+      <img src="img3.jpg" />
+      <div class="slide-title">作品タイトル3</div>
+    </a>
+
   </div>
 
-  <div class="right">
-    <a href="index.html">TOP</a>
-    <a href="about.html">About</a>
-    <a href="portfolio.html">Portfolio</a>
-    <a href="links.html">Links</a>
-  </div>
+  <!-- ドット -->
+  <div class="swiper-pagination"></div>
 </div>
 
-<script src="script.js"></script>
-</body>
-</html>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
