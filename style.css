@@ -116,12 +116,12 @@ nav a:hover::after {
 /* ===== 浮遊アニメーション ===== */
 @keyframes float {
   0% {
-    transform: translateY(0px);
+    transform: translateY(0px) translateX(0px);
   }
   50% {
-    transform: translateY(-2px); /* ←小さくした */
+    transform: translateY(-5px) translateX(3px);
   }
   100% {
-    transform: translateY(0px);
+    transform: translateY(0px) translateX(0px);
   }
 }
