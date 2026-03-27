@@ -114,61 +114,102 @@ nav a:hover::after { width: 100%; }
   padding-left: 15px;
 }
 
-/* ===== Portfolio ===== */
+/* ===== ポートフォリオ背景 ===== */
 .portfolio-wrapper {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  padding: 120px 20px;
 }
 
+/* ===== ガラスカード ===== */
 .portfolio-card {
-  width: 90%;
+  width: 100%;
   max-width: 900px;
-  padding: 50px;
-  border-radius: 20px;
+  padding: 40px 30px;
 
-  background: rgba(255,255,255,0.05);
+  border-radius: 25px;
+
+  /* ✨ ガラス */
+  background: rgba(20, 10, 30, 0.6);
   backdrop-filter: blur(20px);
 
-  border: 1px solid rgba(255,255,255,0.1);
+  border: 1px solid rgba(168, 85, 247, 0.2);
 
+  /* ✨ 浮遊影 */
   box-shadow:
-    0 8px 40px rgba(0,0,0,0.8),
-    inset 0 0 20px rgba(168,85,247,0.1);
+    0 10px 40px rgba(0,0,0,0.6),
+    0 0 40px rgba(168, 85, 247, 0.2);
 
   text-align: center;
 }
 
+/* タイトル */
 .portfolio-title {
-  font-size: 36px;
+  font-size: 42px;
   color: #c084fc;
+  margin-bottom: 10px;
+  letter-spacing: 5px;
 }
 
+/* サブ */
 .portfolio-sub {
-  margin-bottom: 40px;
-  opacity: 0.7;
+  font-size: 14px;
+  color: #aaa;
+  margin-bottom: 30px;
 }
 
-/* スライダー */
+/* ===== スライダー ===== */
+.swiper {
+  width: 100%;
+  height: 260px;
+}
+
+/* カード */
 .swiper-slide {
-  width: 300px;
+  width: 280px;
   height: 180px;
-  opacity: 0.4;
+
+  border-radius: 15px;
+  overflow: hidden;
+
   transition: 0.4s;
+  opacity: 0.4;
+
+  background: rgba(0,0,0,0.4);
+
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.2);
 }
 
-.swiper-slide-active {
-  transform: scale(1.2);
-  opacity: 1;
-}
-
+/* 中身 */
 .slide-dummy {
   width: 100%;
   height: 100%;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #111, #000);
-  color: #a855f7;
+
+  color: #c084fc;
+  font-size: 18px;
+  letter-spacing: 2px;
+}
+
+/* 中央強調 */
+.swiper-slide-active {
+  transform: scale(1.15);
+  opacity: 1;
+
+  box-shadow: 0 0 40px rgba(168, 85, 247, 0.6);
+}
+
+/* ドット */
+.swiper-pagination-bullet {
+  background: #666;
+}
+
+.swiper-pagination-bullet-active {
+  background: #a855f7;
 }
