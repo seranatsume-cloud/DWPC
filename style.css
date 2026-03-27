@@ -1,3 +1,17 @@
+#intro {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: black;
+  z-index: 9999;
+}
+
+#intro video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 body {
   margin: 0;
   background: black;
