@@ -46,6 +46,25 @@ window.addEventListener("DOMContentLoaded", () => {
       clearInterval(interval);
       el.innerText = original;
     });
-  });
+window.addEventListener("load", () => {
+  if (document.querySelector(".mySwiper")) {
+    new Swiper(".mySwiper", {
+      loop: true,
+      centeredSlides: true,
+      slidesPerView: "auto",
+      spaceBetween: 20,
 
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+      },
+
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+
+      grabCursor: true,
+    });
+  }
 });
