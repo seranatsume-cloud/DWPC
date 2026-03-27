@@ -1,38 +1,15 @@
-// イントロ
-const intro = document.getElementById("intro");
+window.addEventListener("DOMContentLoaded", () => {
 
-if (intro) {
-  intro.addEventListener("click", () => {
-    intro.style.opacity = "0";
+  const intro = document.getElementById("intro");
 
-    setTimeout(() => {
-      intro.remove(); // ←完全削除（これが重要）
-    }, 1000);
-  });
-}
+  if (intro) {
+    intro.addEventListener("click", () => {
+      intro.style.opacity = "0";
 
-// グリッチ
-const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+      setTimeout(() => {
+        intro.remove(); // 完全削除
+      }, 800);
+    });
+  }
 
-document.querySelectorAll(".glitch-text").forEach(el => {
-  let interval = null;
-  const original = el.innerText;
-
-  el.addEventListener("mouseenter", () => {
-    interval = setInterval(() => {
-      el.innerText = original
-        .split("")
-        .map(letter =>
-          Math.random() > 0.6
-            ? letter
-            : letters[Math.floor(Math.random() * letters.length)]
-        )
-        .join("");
-    }, 80);
-  });
-
-  el.addEventListener("mouseleave", () => {
-    clearInterval(interval);
-    el.innerText = original;
-  });
 });
