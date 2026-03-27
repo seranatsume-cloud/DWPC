@@ -169,71 +169,123 @@ nav a:hover::after {
   filter: blur(6px);
 }
 
-/* ===== About ===== */
-.about-inner {
+/* ===== Aboutカード全体 ===== */
+.about-card {
   display: flex;
-  gap: 60px;
+  gap: 40px;
   align-items: center;
+
+  padding: 50px;
+  border-radius: 25px;
+
+  background: rgba(20, 10, 30, 0.65);
+  backdrop-filter: blur(25px);
+
+  border: 1px solid rgba(255, 100, 200, 0.2);
+
+  box-shadow:
+    0 0 60px rgba(255, 100, 200, 0.1),
+    0 0 120px rgba(120, 80, 255, 0.15);
+
+  position: relative;
 }
 
-.about-image {
-  width: 350px;
-  height: 350px;
-  border: 1px solid #a855f7;
+/* ===== 左：立ち絵 ===== */
+.about-visual {
+  width: 300px;
+  min-width: 300px;
 
   display: flex;
-  align-items: center;
   justify-content: center;
-
-  color: #aaa;
+  align-items: flex-end;
 }
 
-.about-text {
+.about-visual img {
+  width: 100%;
+  height: auto;
+
+  filter:
+    drop-shadow(0 0 30px rgba(255, 120, 200, 0.3))
+    drop-shadow(0 0 60px rgba(120, 80, 255, 0.3));
+}
+
+/* ===== 右：プロフィール ===== */
+.about-info {
   flex: 1;
 }
 
-.profile-list p {
-  margin: 6px 0;
+/* 名前 */
+.about-name {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 5px;
 }
 
-/* 自己紹介（右寄せ） */
-.about-description {
-  text-align: right;
+/* 英語名 */
+.about-subname {
+  font-size: 14px;
+  color: #aaa;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+}
+
+/* 一言 */
+.about-catch {
+  margin-bottom: 20px;
+  color: #f0aaff;
+}
+
+/* ===== プロフィールグリッド ===== */
+.profile-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 30px;
+
+  margin-bottom: 20px;
+}
+
+.profile-grid p {
+  margin: 0;
+  font-size: 14px;
+}
+
+/* ===== 自己紹介文 ===== */
+.about-textbox {
+  margin-top: 20px;
   line-height: 1.8;
   color: #ddd;
 }
 
-/* ===== 制作カード ===== */
-.work-card {
-  margin-top: 40px;
-}
-
-.work-item {
-  display: flex;
-  gap: 20px;
+/* ===== 注意書きボックス（ピンク枠） ===== */
+.about-note {
   margin-top: 20px;
-  align-items: center;
-
-  padding: 20px;
-  border-radius: 15px;
-
-  background: rgba(255,255,255,0.05);
-}
-
-.work-icon {
-  width: 80px;
-  height: 80px;
+  padding: 15px;
 
   border-radius: 12px;
-  background: rgba(0,0,0,0.4);
+  border: 1px solid rgba(255, 120, 180, 0.4);
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: rgba(255, 80, 150, 0.08);
 
-  color: #aaa;
+  color: #ffb3d9;
+  font-size: 14px;
 }
 
+/* ===== レスポンシブ ===== */
+@media (max-width: 900px) {
+  .about-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-visual {
+    width: 200px;
+    min-width: auto;
+  }
+
+  .profile-grid {
+    grid-template-columns: 1fr;
+  }
+}
 /* ===== Portfolio ===== */
 .portfolio-title {
   font-size: 40px;
