@@ -108,12 +108,13 @@ body::after {
 @keyframes rain {
   from { transform: translateY(0); }
   to { transform: translateY(10px); }
-}
+/* ===== Aboutページ ===== */
+
 .about-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 60px;
+  gap: 80px;
   height: 100vh;
   padding: 0 10%;
 }
@@ -127,11 +128,13 @@ body::after {
   align-items: center;
   justify-content: center;
   font-size: 24px;
+  color: white;
 }
 
-/* テキストエリア */
+/* テキスト */
 .about-text {
   max-width: 500px;
+  color: white;
 }
 
 .about-text h1 {
@@ -139,7 +142,11 @@ body::after {
   margin-bottom: 20px;
 }
 
-.about-text p {
+/* プレースホルダー（入力欄っぽい見た目） */
+.placeholder {
+  color: rgba(255, 255, 255, 0.3);
   font-size: 18px;
   line-height: 1.8;
+  border-left: 2px solid #fff;
+  padding-left: 15px;
 }
