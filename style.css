@@ -41,8 +41,7 @@ nav a:hover {
 }
 
 .logo {
-  width: 300px;
-  filter: drop-shadow(0 0 20px #a855f7);
+  filter: drop-shadow(0 0 10px white) drop-shadow(0 0 20px #a855f7);
 }
 
 /* 背景スライド */
