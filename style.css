@@ -11,8 +11,12 @@ body {
   overflow-x: hidden;
 
   background:
-    radial-gradient(circle at 20% 10%, rgba(120,0,255,0.08), transparent 40%),
-    radial-gradient(circle at 80% 90%, rgba(120,0,255,0.05), transparent 50%),
+    radial-gradient(
+      circle at center,
+      rgba(120, 0, 255, 0.18),
+      rgba(120, 0, 255, 0.08) 30%,
+      transparent 60%
+    ),
     #050507;
 }
 
