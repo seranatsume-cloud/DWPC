@@ -29,7 +29,7 @@ document.querySelectorAll(".glitch-text").forEach(el => {
         })
         .join("");
 
-      iteration += 1 / 12;   // ←ここ調整
+      iteration += 1 / 36「;   // ←ここ調整
       if (iteration >= original.length) {
         clearInterval(interval);
         el.innerText = original;
