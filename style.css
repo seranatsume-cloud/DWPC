@@ -2,6 +2,7 @@ body {
   margin: 0;
   background: black;
   overflow: hidden;
+  color: white;
 }
 
 /* イントロ */
@@ -31,8 +32,6 @@ nav {
   display: flex;
   justify-content: center;
   gap: 40px;
-
-
 }
 
 nav a {
@@ -70,7 +69,7 @@ nav a:hover::after {
 /* ロゴ */
 .logo {
   width: 40vw;
-  maxwidth: 500px;
+  max-width: 500px;
   animation: float 6s ease-in-out infinite;
   filter: drop-shadow(0 0 10px #a855f7);
 }
@@ -110,6 +109,8 @@ body::after {
 @keyframes rain {
   from { transform: translateY(0); }
   to { transform: translateY(10px); }
+}
+
 /* ===== Aboutページ ===== */
 
 .about-container {
@@ -136,7 +137,6 @@ body::after {
 /* テキスト */
 .about-text {
   max-width: 500px;
-  color: white;
 }
 
 .about-text h1 {
@@ -144,16 +144,11 @@ body::after {
   margin-bottom: 20px;
 }
 
-/* プレースホルダー（入力欄っぽい見た目） */
+/* プレースホルダー */
 .placeholder {
-  color: #fff; /* ←完全な白 */
+  color: #ffffff;
   font-size: 18px;
   line-height: 1.8;
-  border-left: 2px solid #fff;
+  border-left: 2px solid #ffffff;
   padding-left: 15px;
-  
-}
-.about-text,
-.about-text * {
-  color: white !important;
 }
