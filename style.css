@@ -72,3 +72,40 @@ nav a {
   filter: drop-shadow(0 0 20px #c084fc)
           drop-shadow(0 0 40px #a855f7);
 }
+/* ===== About ===== */
+
+.about-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 80px;
+  min-height: 100vh;
+  padding: 120px 10% 50px;
+  box-sizing: border-box;
+}
+
+/* 画像 */
+.about-image {
+  width: 300px;
+  height: 300px;
+  border: 1px solid #a855f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* テキスト */
+.about-text {
+  max-width: 500px;
+}
+
+.about-text h1 {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.about-text p {
+  line-height: 1.8;
+  border-left: 2px solid #a855f7;
+  padding-left: 15px;
+}
