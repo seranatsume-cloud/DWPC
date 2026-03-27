@@ -1,9 +1,13 @@
-const video = document.getElementById("introVideo");
 const intro = document.getElementById("intro");
 
-video.onended = () => {
-  intro.style.display = "none";
-};
+// クリックで消す
+if (intro) {
+  intro.addEventListener("click", () => {
+    intro.style.display = "none";
+  });
+}
+
+// ===== グリッチ文字 =====
 const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
 
 document.querySelectorAll(".glitch-text").forEach(el => {
@@ -28,13 +32,4 @@ document.querySelectorAll(".glitch-text").forEach(el => {
       }
     }, 30);
   });
-});
-
-const intro = document.getElementById("intro");
-
-intro.addEventListener("click", () => {
-  intro.style.display = "none";
-});
-intro.addEventListener("click", () => {
-  intro.style.display = "none";
 });
