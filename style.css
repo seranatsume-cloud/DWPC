@@ -191,15 +191,14 @@ body::after {
   font-size: 14px;
   color: white;
   background: linear-gradient(transparent, rgba(0,0,0,0.8));
+  
+.swiper-slide {
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
 }
 
-/* 中央だけ強調 */
 .swiper-slide-active {
-  transform: scale(1.2);
-  opacity: 1;
-  z-index: 2;
+  box-shadow: 0 0 40px rgba(168, 85, 247, 0.8);
 }
-
 /* 横のやつ */
 .swiper-slide-prev,
 .swiper-slide-next {
