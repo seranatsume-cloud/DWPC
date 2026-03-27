@@ -10,14 +10,12 @@ body {
   color: white;
   overflow-x: hidden;
 
+  /* 🌊 深海ライティング */
   background:
-    radial-gradient(
-      circle at center,
-      rgba(120, 0, 255, 0.18),
-      rgba(120, 0, 255, 0.08) 30%,
-      transparent 60%
-    ),
-    #050507;
+    radial-gradient(circle at 50% 30%, rgba(120, 0, 255, 0.25), transparent 40%),
+    radial-gradient(circle at 50% 50%, rgba(80, 0, 150, 0.2), transparent 60%),
+    radial-gradient(circle at 50% 80%, rgba(40, 0, 100, 0.25), transparent 75%),
+    #020203;
 }
 
 /* ===== Intro ===== */
