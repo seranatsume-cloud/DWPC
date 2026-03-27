@@ -54,3 +54,21 @@ nav a {
   width: 40vw;
   max-width: 500px;
 }
+/* ===== ロゴ ===== */
+
+.logo {
+  width: 30vw;           /* 少し小さく */
+  max-width: 400px;
+  transition: 0.4s ease;
+  
+  /* 光 */
+  filter: drop-shadow(0 0 10px #a855f7)
+          drop-shadow(0 0 20px #a855f7);
+}
+
+/* ホバーで強く光る */
+.logo:hover {
+  transform: scale(1.08);
+  filter: drop-shadow(0 0 20px #c084fc)
+          drop-shadow(0 0 40px #a855f7);
+}
