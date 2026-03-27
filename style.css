@@ -5,16 +5,33 @@
 
 /* ===== 全体 ===== */
 body {
-  <div id="intro">ENTER</div>
   margin: 0;
   font-family: "aosagi", sans-serif;
   color: white;
   overflow-x: hidden;
 
   background:
-    radial-gradient(circle at 20% 10%, rgba(120,0,255,0.12), transparent 40%),
-    radial-gradient(circle at 80% 90%, rgba(120,0,255,0.08), transparent 50%),
+    radial-gradient(circle at 20% 10%, rgba(120,0,255,0.08), transparent 40%),
+    radial-gradient(circle at 80% 90%, rgba(120,0,255,0.05), transparent 50%),
     #050507;
+}
+
+/* ===== Intro ===== */
+#intro {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: black;
+  color: #a855f7;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 40px;
+  z-index: 9999;
+  cursor: pointer;
+  transition: 1s;
 }
 
 /* ===== ナビ ===== */
@@ -41,6 +58,7 @@ nav a {
   position: relative;
 }
 
+/* 下線 */
 nav a::after {
   content: "";
   position: absolute;
@@ -53,7 +71,7 @@ nav a::after {
 }
 nav a:hover::after { width: 100%; }
 
-/* ===== TOP ===== */
+/* ===== TOPロゴ ===== */
 .main {
   height: 100vh;
   display: flex;
@@ -77,15 +95,16 @@ nav a:hover::after { width: 100%; }
   100% { transform: translateY(0px); }
 }
 
-/* ===== ページ中央固定（重要） ===== */
+/* ===== ページ中央 ===== */
 .page-wrapper {
   min-height: 100vh;
   padding: 140px 20px 80px;
 
   display: flex;
   justify-content: center;
-  align-items: flex-start; /* ←絶対これ */
+  align-items: flex-start; /* ←ズレ防止 */
 }
+
 /* ===== ガラスUI ===== */
 .glass-card {
   width: 100%;
@@ -107,7 +126,7 @@ nav a:hover::after { width: 100%; }
   transition: 0.4s;
 }
 
-/* ✨ グラデーション発光（重要） */
+/* ✨ 発光 */
 .glass-card::before {
   content: "";
   position: absolute;
@@ -115,13 +134,7 @@ nav a:hover::after { width: 100%; }
   border-radius: 25px;
   padding: 1px;
 
-  background: linear-gradient(
-    120deg,
-    #a855f7,
-    #c084fc,
-    #9333ea,
-    #a855f7
-  );
+  background: linear-gradient(120deg,#a855f7,#c084fc,#9333ea,#a855f7);
 
   -webkit-mask:
     linear-gradient(#000 0 0) content-box,
@@ -137,47 +150,6 @@ nav a:hover::after { width: 100%; }
 .glass-card:hover::before {
   opacity: 1;
   filter: blur(6px);
-}
-
-/* ===== About ===== */
-.about-inner {
-  display: flex;
-  gap: 60px;
-  align-items: center;
-}
-
-.about-image {
-  width: 350px;
-  height: 500px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.about-text h1 {
-  font-size: 40px;
-  color: #c084fc;
-}
-
-.profile-list p {
-  margin: 6px 0;
-}
-
-/* ===== 制作物 ===== */
-.work-section {
-  margin-top: 50px;
-}
-
-.work-item {
-  display: flex;
-  gap: 20px;
-  margin-top: 15px;
-  align-items: center;
-}
-
-.work-item img {
-  width: 80px;
-  border-radius: 10px;
 }
 
 /* ===== Portfolio ===== */
@@ -249,7 +221,7 @@ nav a:hover::after { width: 100%; }
     0 0 60px rgba(192,132,252,0.6);
 }
 
-/* 画像安全 */
+/* 画像 */
 img {
   max-width: 100%;
 }
