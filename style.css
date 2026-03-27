@@ -188,3 +188,96 @@ nav a:hover::after {
   border-left: 2px solid #a855f7;
   padding-left: 15px;
 }
+/* ===== Portfolioページ ===== */
+
+.portfolio-wrapper {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* カード */
+.portfolio-card {
+  width: 90%;
+  max-width: 900px;
+
+  background: rgba(20, 0, 40, 0.6);
+  backdrop-filter: blur(10px);
+
+  border-radius: 20px;
+
+  padding: 40px;
+
+  /* 影 */
+  box-shadow:
+    0 0 40px rgba(168, 85, 247, 0.2),
+    0 10px 40px rgba(0,0,0,0.8);
+
+  text-align: center;
+}
+
+/* タイトル */
+.portfolio-title {
+  font-size: 36px;
+  margin-bottom: 10px;
+  color: #c084fc;
+}
+
+/* サブ */
+.portfolio-sub {
+  font-size: 14px;
+  margin-bottom: 40px;
+  opacity: 0.7;
+}
+
+/* ===== スライダー ===== */
+
+.swiper {
+  width: 100%;
+  padding-bottom: 40px;
+}
+
+.swiper-slide {
+  width: 300px;
+  height: 180px;
+
+  border-radius: 16px;
+  overflow: hidden;
+
+  opacity: 0.4;
+  transition: 0.4s;
+
+  text-decoration: none;
+}
+
+/* 中央強調 */
+.swiper-slide-active {
+  transform: scale(1.2);
+  opacity: 1;
+}
+
+/* ダミー */
+.slide-dummy {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: linear-gradient(135deg, #1a0033, #000);
+
+  color: #a855f7;
+  font-size: 20px;
+  letter-spacing: 3px;
+}
+
+/* ドット */
+.swiper-pagination-bullet {
+  background: #888;
+}
+
+.swiper-pagination-bullet-active {
+  background: #a855f7;
+}
