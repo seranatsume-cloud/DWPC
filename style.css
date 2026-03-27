@@ -21,13 +21,10 @@ body {
 
 /* ナビ */
 header {
-  position: fixed;
+  position: absolute;
   top: 50px;
   width: 100%;
-  padding: 20px;
-  background: rgba(0,0,0,0.6);
-  backdrop-filter: blur(10px);
-  z-index: 10;
+  text-align: center;
 }
 
 nav {
