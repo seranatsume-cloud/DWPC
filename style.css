@@ -47,6 +47,11 @@ nav {
 
 nav a {
   font-family: "aosagi";
+  font-size: 20px; /* ←ここでサイズUP */
+  letter-spacing: 3px;
+  color: white;
+  text-decoration: none;
+  position: relative;
 }
 
 
@@ -63,14 +68,15 @@ nav a:hover {
 }
 
 .logo {
-  width: 300px;
+  width: 420px; /* ←大きく */
   transition: 0.4s;
-  animation: float 3s ease-in-out infinite;
+  animation: float 6s ease-in-out infinite; /* ←3秒→6秒でゆっくり */
+  filter: drop-shadow(0 0 10px #a855f7);
 }
 
 @keyframes float {
   0% { transform: translateY(0px); }
-  50% { transform: translateY(-15px); }
+  50% { transform: translateY(-25px); } /* ←動きも少し大きく */
   100% { transform: translateY(0px); }
 }
 
