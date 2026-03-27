@@ -41,9 +41,22 @@ nav a:hover {
 }
 
 .logo {
-  filter: drop-shadow(0 0 10px white) drop-shadow(0 0 20px #a855f7);
+  width: 300px;
+  transition: 0.4s;
+  animation: float 3s ease-in-out infinite;
 }
 
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+
+/* ホバー */
+.logo:hover {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 20px #a855f7);
+}
 /* 背景スライド */
 .bg {
   position: fixed;
