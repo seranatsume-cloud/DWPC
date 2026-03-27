@@ -1,209 +1,40 @@
-@font-face {
-  font-family: "aosagi";
-  src: url("./aosagi.otf");
-}
-
 /* ===== 全体 ===== */
 body {
   margin: 0;
-
-  background:
-    radial-gradient(circle at 20% 10%, rgba(120,0,255,0.15), transparent 40%),
-    radial-gradient(circle at 80% 90%, rgba(120,0,255,0.1), transparent 50%),
-    #0a0014;
-
-  color: white;
   font-family: "aosagi", sans-serif;
-  overflow-x: hidden;
-}
-
-/* ===== ナビ ===== */
-header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 100;
-}
-
-nav {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  padding: 20px 0;
-  background: rgba(0,0,0,0.5);
-  backdrop-filter: blur(6px);
-}
-
-nav a {
   color: white;
-  text-decoration: none;
-  letter-spacing: 3px;
-  position: relative;
+  overflow-x: hidden;
+
+  /* 落ち着いた黒＋ほんのり紫 */
+  background:
+    radial-gradient(circle at 50% 0%, rgba(120, 0, 200, 0.12), transparent 60%),
+    #050507;
 }
 
-nav a::after {
-  content: "";
-  position: absolute;
-  bottom: -5px;
-  width: 0%;
-  height: 1px;
-  background: linear-gradient(90deg,#a855f7,#c084fc);
-  transition: 0.3s;
-}
-nav a:hover::after { width: 100%; }
-
-/* ===== 共通カード ===== */
-.wrapper {
-  min-height: 100vh;
+/* ===== TOP レイアウト ===== */
+.main {
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 120px 20px;
 }
 
-.card {
-  width: 100%;
-  max-width: 900px;
-  padding: 40px;
-  border-radius: 25px;
-
-  background: rgba(20,10,30,0.6);
-  backdrop-filter: blur(20px);
-
-  border: 1px solid rgba(168,85,247,0.2);
-
-  box-shadow:
-    0 0 20px rgba(168,85,247,0.2),
-    0 0 60px rgba(168,85,247,0.15),
-    inset 0 0 30px rgba(168,85,247,0.1);
-
-  transition: 0.4s;
-}
-
-.card:hover {
-  box-shadow:
-    0 0 30px rgba(168,85,247,0.5),
-    0 0 80px rgba(192,132,252,0.3),
-    inset 0 0 40px rgba(168,85,247,0.2);
-}
-
-/* ===== About ===== */
-.about-content {
-  display: flex;
-  gap: 60px;
-  align-items: center;
-}
-
-.about-image {
-  width: 350px;
-  height: 500px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.about-text {
-  flex: 1;
-}
-
-.about-text h1 {
-  font-size: 40px;
-  margin-bottom: 20px;
-}
-
-.about-list p {
-  margin: 8px 0;
-}
-
-/* ===== Portfolio ===== */
-.portfolio-title {
-  text-align: center;
-  font-size: 40px;
-  margin-bottom: 10px;
-}
-
-.portfolio-sub {
-  text-align: center;
-  margin-bottom: 30px;
-  color: #aaa;
-}
-
-/* スライド */
-.swiper {
-  width: 100%;
-  height: 260px;
-}
-
-.swiper-slide {
-  width: 280px;
-  height: 180px;
-  border-radius: 15px;
-  overflow: hidden;
-  background: rgba(0,0,0,0.4);
-  opacity: 0.4;
-  transition: 0.4s;
-}
-
-.swiper-slide-active {
-  transform: scale(1.15);
-  opacity: 1;
-}
-
-.slide-dummy {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  color: #c084fc;
-}
-
-/* ===== ボタン ===== */
-.back-to-top {
-  margin: 30px auto 0;
-  width: 60px;
-  height: 60px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  font-size: 24px;
-
-  border-radius: 15px;
-
-  background: rgba(20,10,30,0.6);
-  backdrop-filter: blur(10px);
-
-  border: 1px solid rgba(168,85,247,0.3);
-
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.back-to-top:hover {
-  box-shadow:
-    0 0 20px rgba(168,85,247,0.8),
-    0 0 60px rgba(192,132,252,0.6);
-  transform: translateY(-5px);
-}
-/* ===== ロゴ修正 ===== */
+/* ===== ロゴ ===== */
 .logo {
-  width: 35vw;        /* ← ここでサイズ制御 */
-  max-width: 500px;   /* ← PCでの上限 */
+  width: 35vw;          /* ←ここが重要 */
+  max-width: 400px;     /* デカくなりすぎ防止 */
+  min-width: 200px;
 
-  display: block;
-  margin: 0 auto;
-
-  /* 発光 */
-  filter: drop-shadow(0 0 30px #a855f7);
-
-  /* 浮遊 */
   animation: float 5s ease-in-out infinite;
+
+  filter:
+    drop-shadow(0 0 20px #a855f7)
+    drop-shadow(0 0 40px #a855f7);
 }
 
-/* 浮遊アニメ */
+/* 浮遊 */
 @keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-8px); }  /* ←揺れ弱め */
   100% { transform: translateY(0px); }
 }
