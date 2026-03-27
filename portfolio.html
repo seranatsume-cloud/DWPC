@@ -2,8 +2,13 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<title>Portfolio</title>
+<title>Portfolio | 深界製薬</title>
+
 <link rel="stylesheet" href="style.css">
+
+<!-- Swiper -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
 </head>
 
 <body>
@@ -17,11 +22,43 @@
   </nav>
 </header>
 
-<div class="main">
-  <h1>Portfolio</h1>
-  <p>ここに作品が入ります</p>
+<!-- ===== カード ===== -->
+<div class="portfolio-wrapper">
+
+  <div class="portfolio-card">
+
+    <h1 class="portfolio-title">PORTFOLIO</h1>
+    <p class="portfolio-sub">
+      深界製薬の研究記録 / 実験データ一覧
+    </p>
+
+    <!-- スライダー -->
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+
+        <a href="#" class="swiper-slide">
+          <div class="slide-dummy">TEST 1</div>
+        </a>
+
+        <a href="#" class="swiper-slide">
+          <div class="slide-dummy">TEST 2</div>
+        </a>
+
+        <a href="#" class="swiper-slide">
+          <div class="slide-dummy">TEST 3</div>
+        </a>
+
+      </div>
+
+      <div class="swiper-pagination"></div>
+    </div>
+
+  </div>
+
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="script.js"></script>
+
 </body>
 </html>
