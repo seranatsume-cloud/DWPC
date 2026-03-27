@@ -1,39 +1,17 @@
 @font-face {
   font-family: "aosagi";
   src: url("./aosagi.otf");
+}
+
 body {
   margin: 0;
-
-  /* ← 紫をかなり弱くする */
-  background: radial-gradient(
-      circle at 50% 20%,
-      rgba(80, 0, 120, 0.08), /* ←ここ弱くした */
-      transparent 70%
-    ),
-    #05010a; /* ←黒を深く */
-
+  background: #0a0a0f;
   color: white;
-  overflow-x: hidden;
   font-family: "aosagi", sans-serif;
+  overflow-x: hidden;
 }
 
-/* ===== イントロ ===== */
-#intro {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background: black;
-  color: #a855f7;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 40px;
-  z-index: 9999;
-  cursor: pointer;
-  transition: 1s;
-}
-
-/* ===== ナビ ===== */
+/* ナビ */
 header {
   position: fixed;
   top: 0;
@@ -45,9 +23,8 @@ nav {
   display: flex;
   justify-content: center;
   gap: 40px;
-  padding: 20px 0;
-  background: rgba(0,0,0,0.5);
-  backdrop-filter: blur(6px);
+  padding: 20px;
+  background: rgba(0,0,0,0.6);
 }
 
 nav a {
@@ -57,7 +34,6 @@ nav a {
   position: relative;
 }
 
-/* グリッチ用下線 */
 nav a::after {
   content: "";
   position: absolute;
@@ -67,9 +43,12 @@ nav a::after {
   background: #a855f7;
   transition: 0.3s;
 }
-nav a:hover::after { width: 100%; }
 
-/* ===== TOP ===== */
+nav a:hover::after {
+  width: 100%;
+}
+
+/* TOP */
 .main {
   height: 100vh;
   display: flex;
@@ -77,145 +56,87 @@ nav a:hover::after { width: 100%; }
   align-items: center;
 }
 
-/* ロゴ */
 .logo {
   width: 50vw;
-  max-width: 700px;
+  max-width: 600px;
   animation: float 5s ease-in-out infinite;
-  filter: drop-shadow(0 0 30px #a855f7);
+  filter: drop-shadow(0 0 20px #a855f7);
 }
 
-/* 浮遊 */
 @keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-12px); }
-  100% { transform: translateY(0px); }
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
 }
 
-/* ===== About ===== */
-.about-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 80px;
-  height: calc(100vh - 80px);
-  margin-top: 80px;
-}
+/* ===== Portfolio ===== */
 
-.about-image {
-  width: 300px;
-  height: 300px;
-  border: 1px solid #a855f7;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.about-text {
-  max-width: 500px;
-}
-
-.about-text p {
-  border-left: 2px solid #a855f7;
-  padding-left: 15px;
-}
-
-/* ===== ポートフォリオ背景 ===== */
 .portfolio-wrapper {
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-
-  padding: 120px 20px;
+  padding-top: 120px;
 }
 
-/* ===== ガラスカード ===== */
 .portfolio-card {
-  width: 100%;
+  width: 90%;
   max-width: 900px;
-  padding: 40px 30px;
+  padding: 40px;
+  border-radius: 20px;
 
-  border-radius: 25px;
-
-  /* ✨ ガラス */
-  background: rgba(20, 10, 30, 0.6);
+  background: rgba(20,20,25,0.7);
   backdrop-filter: blur(20px);
 
-  border: 1px solid rgba(168, 85, 247, 0.2);
+  border: 1px solid rgba(255,255,255,0.05);
 
-  /* ✨ 浮遊影 */
-  box-shadow:
-    0 10px 40px rgba(0,0,0,0.6),
-    0 0 40px rgba(168, 85, 247, 0.2);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.8);
 
   text-align: center;
 }
 
-/* タイトル */
 .portfolio-title {
-  font-size: 42px;
+  font-size: 40px;
   color: #c084fc;
-  margin-bottom: 10px;
   letter-spacing: 5px;
 }
 
-/* サブ */
 .portfolio-sub {
-  font-size: 14px;
   color: #aaa;
   margin-bottom: 30px;
 }
 
-/* ===== スライダー ===== */
+/* スライダー */
 .swiper {
   width: 100%;
   height: 260px;
-  display: flex; /* ←これ追加 */
-  align-items: center;
 }
-.swiper-wrapper {
-  align-items: center;
-}
-/* カード */
+
 .swiper-slide {
   width: 280px;
   height: 180px;
-
   border-radius: 15px;
   overflow: hidden;
 
-  transition: 0.4s;
-  opacity: 0.4;
-
   background: rgba(0,0,0,0.4);
-
-  box-shadow: 0 0 20px rgba(168, 85, 247, 0.2);
+  opacity: 0.4;
+  transition: 0.4s;
 }
 
-/* 中身 */
-.slide-dummy {
-  width: 100%;
-  height: 100%;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  color: #c084fc;
-  font-size: 18px;
-  letter-spacing: 2px;
-}
-
-/* 中央強調 */
 .swiper-slide-active {
   transform: scale(1.15);
   opacity: 1;
-
-  box-shadow: 0 0 40px rgba(168, 85, 247, 0.6);
 }
 
-/* ドット */
+.slide-dummy {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+
+  color: #c084fc;
+}
+
 .swiper-pagination-bullet {
   background: #666;
 }
