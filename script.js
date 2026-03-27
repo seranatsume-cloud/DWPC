@@ -1,5 +1,6 @@
 window.addEventListener("DOMContentLoaded", () => {
 
+  // ===== イントロ =====
   const intro = document.getElementById("intro");
 
   if (intro) {
@@ -7,43 +8,44 @@ window.addEventListener("DOMContentLoaded", () => {
       intro.style.opacity = "0";
 
       setTimeout(() => {
-        intro.remove(); // 完全削除
+        intro.remove();
       }, 800);
     });
   }
 
-});
-// ===== グリッチエフェクト =====
-const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+  // ===== グリッチ =====
+  const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
 
-document.querySelectorAll(".glitch-text").forEach(el => {
-  let interval = null;
-  const original = el.innerText;
+  document.querySelectorAll(".glitch-text").forEach(el => {
+    let interval = null;
+    const original = el.innerText;
 
-  el.addEventListener("mouseenter", () => {
-    let iteration = 0;
+    el.addEventListener("mouseenter", () => {
+      let iteration = 0;
 
-    interval = setInterval(() => {
-      el.innerText = original
-        .split("")
-        .map((letter, index) => {
-          if (index < iteration) {
-            return original[index];
-          }
-          return letters[Math.floor(Math.random() * letters.length)];
-        })
-        .join("");
+      interval = setInterval(() => {
+        el.innerText = original
+          .split("")
+          .map((letter, index) => {
+            if (index < iteration) {
+              return original[index];
+            }
+            return letters[Math.floor(Math.random() * letters.length)];
+          })
+          .join("");
 
-      if (iteration >= original.length) {
-        clearInterval(interval);
-      }
+        if (iteration >= original.length) {
+          clearInterval(interval);
+        }
 
-      iteration += 1 / 3; // ←速さ調整（小さいほどゆっくり）
-    }, 30);
+        iteration += 1 / 3;
+      }, 30);
+    });
+
+    el.addEventListener("mouseleave", () => {
+      clearInterval(interval);
+      el.innerText = original;
+    });
   });
 
-  el.addEventListener("mouseleave", () => {
-    clearInterval(interval);
-    el.innerText = original;
-  });
 });
