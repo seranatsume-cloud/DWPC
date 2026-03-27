@@ -19,8 +19,8 @@ document.querySelectorAll(".glitch-text").forEach(el => {
   let interval = null;
   const original = el.innerText;
 
-  // マウス乗せたとき
-  el.addEventListener("mouseover", () => {
+  // カーソル乗ったらバグ開始
+  el.addEventListener("mouseenter", () => {
     interval = setInterval(() => {
       el.innerText = original
         .split("")
@@ -28,11 +28,11 @@ document.querySelectorAll(".glitch-text").forEach(el => {
           return letters[Math.floor(Math.random() * letters.length)];
         })
         .join("");
-    }, 50); // ←速さ調整（小さいほど激しい）
+    }, 50); // ←速さ調整
   });
 
-  // マウス離したとき
-  el.addEventListener("mouseout", () => {
+  // カーソル外したら元に戻す
+  el.addEventListener("mouseleave", () => {
     clearInterval(interval);
     el.innerText = original;
   });
