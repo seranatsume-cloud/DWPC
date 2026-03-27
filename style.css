@@ -1,3 +1,7 @@
+@font-face {
+  font-family: "aosagi";
+  src: url("./aosagi.otf");
+}
 body {
   margin: 0;
   background: black;
