@@ -2,34 +2,57 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<title>Links</title>
+<title>Portfolio</title>
+
 <link rel="stylesheet" href="style.css">
+
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
 </head>
 
 <body>
 
 <header>
-<nav>
-<a href="index.html">TOP</a>
-<a href="about.html">About</a>
-<a href="portfolio.html">Portfolio</a>
-<a href="links.html">Links</a>
-<a href="company.html">Company</a>
-</nav>
+  <nav>
+    <a href="index.html" class="glitch-text">TOP</a>
+    <a href="about.html" class="glitch-text">About</a>
+    <a href="portfolio.html" class="glitch-text">Portfolio</a>
+    <a href="links.html" class="glitch-text">Links</a>
+    <a href="company.html" class="glitch-text">Company</a>
+  </nav>
 </header>
 
-<div class="wrapper">
-<div class="card">
+<div class="portfolio-wrapper">
 
-<h1>Links</h1>
+  <div class="glass-card">
 
-<p>ここにリンクを追加</p>
+    <h1 class="portfolio-title">PORTFOLIO</h1>
+    <p class="portfolio-sub">制作一覧</p>
 
-<div class="back-to-top">↑</div>
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
 
+        <a href="#" class="swiper-slide">
+          <div class="slide-dummy">TEST1</div>
+        </a>
+
+        <a href="#" class="swiper-slide">
+          <div class="slide-dummy">TEST2</div>
+        </a>
+
+      </div>
+
+      <div class="swiper-pagination"></div>
+    </div>
+
+    <a href="#" class="back-top">↑</a>
+
+  </div>
 </div>
-</div>
 
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="script.js"></script>
+
 </body>
 </html>
