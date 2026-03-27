@@ -10,11 +10,11 @@ body {
   color: white;
   overflow-x: hidden;
 
+  /* 🌊 深海ベース（紫控えめ） */
   background:
-    radial-gradient(circle at 50% 25%, rgba(140, 0, 255, 0.3), transparent 35%),
-    radial-gradient(circle at 30% 60%, rgba(80, 0, 200, 0.15), transparent 60%),
-    radial-gradient(circle at 70% 70%, rgba(50, 0, 150, 0.15), transparent 70%),
-    #010102;
+    radial-gradient(circle at 50% 35%, rgba(120, 80, 255, 0.18), transparent 40%),
+    radial-gradient(circle at 50% 70%, rgba(30, 20, 80, 0.4), transparent 70%),
+    #01030a;
 }
 /* ===== Intro ===== */
 #intro {
