@@ -1,6 +1,6 @@
 @font-face {
   font-family: "aosagi";
-  src: url("./aosagi.otf");
+  src: url("./aosagi.otf") format("opentype");
 }
 body {
   margin: 0;
