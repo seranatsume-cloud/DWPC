@@ -16,24 +16,24 @@ if (intro) {
 const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
 
 document.querySelectorAll(".glitch-text").forEach(el => {
-  el.addEventListener("mouseover", () => {
-    let iteration = 0;
-    const original = el.innerText;
+  let interval = null;
+  const original = el.innerText;
 
-    const interval = setInterval(() => {
+  // マウス乗せたとき
+  el.addEventListener("mouseover", () => {
+    interval = setInterval(() => {
       el.innerText = original
         .split("")
-        .map((letter, index) => {
-          if (index < iteration) return original[index];
+        .map(() => {
           return letters[Math.floor(Math.random() * letters.length)];
         })
         .join("");
+    }, 50); // ←速さ調整（小さいほど激しい）
+  });
 
-      iteration += 1 / 36;   // ←ここ調整
-      if (iteration >= original.length) {
-        clearInterval(interval);
-        el.innerText = original;
-      }
-    }, 60); // ←ここ調整
+  // マウス離したとき
+  el.addEventListener("mouseout", () => {
+    clearInterval(interval);
+    el.innerText = original;
   });
 });
