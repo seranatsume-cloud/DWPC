@@ -1,31 +1,22 @@
-#intro {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-
-  background: black;
-  color: white; /* ←これ追加 */
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  z-index: 9999;
-  font-size: 40px;
-}
-#intro video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
 body {
   margin: 0;
   background: black;
   overflow: hidden;
-  font-family: sans-serif;
+}
+
+/* イントロ */
+#intro {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: black;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  z-index: 9999;
+  cursor: pointer;
 }
 
 /* ナビ */
@@ -47,19 +38,29 @@ nav {
 
 nav a {
   font-family: "aosagi";
-  font-size: 20px; /* ←ここでサイズUP */
+  font-size: 20px;
   letter-spacing: 3px;
   color: white;
   text-decoration: none;
   position: relative;
 }
 
-
-nav a:hover {
-  text-shadow: 0 0 10px #a855f7;
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0%;
+  height: 1px;
+  background: #a855f7;
+  transition: 0.3s;
 }
 
-/* ロゴ中央 */
+nav a:hover::after {
+  width: 100%;
+}
+
+/* メイン */
 .main {
   height: 100vh;
   display: flex;
@@ -67,50 +68,29 @@ nav a:hover {
   align-items: center;
 }
 
+/* ロゴ */
 .logo {
-  width: 420px; /* ←大きく */
-  transition: 0.4s;
-  animation: float 6s ease-in-out infinite; /* ←3秒→6秒でゆっくり */
+  width: 420px;
+  animation: float 6s ease-in-out infinite;
   filter: drop-shadow(0 0 10px #a855f7);
 }
 
 @keyframes float {
   0% { transform: translateY(0px); }
-  50% { transform: translateY(-25px); } /* ←動きも少し大きく */
+  50% { transform: translateY(-25px); }
   100% { transform: translateY(0px); }
 }
 
-/* ホバー */
-.logo:hover {
-  transform: scale(1.1);
-  filter: drop-shadow(0 0 20px #a855f7);
-}
-/* 背景スライド */
+/* 背景 */
 .bg {
   position: fixed;
   width: 100%;
   height: 100%;
   background-size: cover;
   z-index: -2;
-  animation: slide 15s infinite;
 }
 
-@keyframes slide {
-  0% { background-image: url("bg1.jpg"); }
-  33% { background-image: url("bg2.jpg"); }
-  66% { background-image: url("bg3.jpg"); }
-}
-
-/* 黒フィルター */
-.bg::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.7);
-}
-
-/* 雨みたいなやつ */
+/* 雨エフェクト */
 body::after {
   content: "";
   position: fixed;
@@ -130,15 +110,4 @@ body::after {
 @keyframes rain {
   from { transform: translateY(0); }
   to { transform: translateY(10px); }
-}
-
-/* グリッチ */
-#glitch {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background: white;
-  opacity: 0;
-  z-index: 999;
-  pointer-events: none;
 }
