@@ -29,12 +29,11 @@ document.querySelectorAll(".glitch-text").forEach(el => {
         })
         .join("");
 
-      iteration += 1 / 2;
-
+      iteration += 1 / 8;   // ←ここ調整
       if (iteration >= original.length) {
         clearInterval(interval);
         el.innerText = original;
       }
-    }, 20);
+    }, 50); // ←ここ調整
   });
 });
