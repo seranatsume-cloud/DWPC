@@ -186,3 +186,24 @@ nav a:hover::after { width: 100%; }
     0 0 60px rgba(192,132,252,0.6);
   transform: translateY(-5px);
 }
+/* ===== ロゴ修正 ===== */
+.logo {
+  width: 35vw;        /* ← ここでサイズ制御 */
+  max-width: 500px;   /* ← PCでの上限 */
+
+  display: block;
+  margin: 0 auto;
+
+  /* 発光 */
+  filter: drop-shadow(0 0 30px #a855f7);
+
+  /* 浮遊 */
+  animation: float 5s ease-in-out infinite;
+}
+
+/* 浮遊アニメ */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
