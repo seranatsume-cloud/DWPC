@@ -31,6 +31,8 @@ nav {
   display: flex;
   justify-content: center;
   gap: 40px;
+
+
 }
 
 nav a {
@@ -149,5 +151,9 @@ body::after {
   line-height: 1.8;
   border-left: 2px solid #fff;
   padding-left: 15px;
+  
 }
-
+.about-text,
+.about-text * {
+  color: white !important;
+}
