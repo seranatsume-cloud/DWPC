@@ -3,11 +3,10 @@ const intro = document.getElementById("intro");
 
 if (intro) {
   intro.addEventListener("click", () => {
-    intro.style.transition = "1s";
     intro.style.opacity = "0";
 
     setTimeout(() => {
-      intro.style.display = "none";
+      intro.remove(); // ←完全削除（これが重要）
     }, 1000);
   });
 }
