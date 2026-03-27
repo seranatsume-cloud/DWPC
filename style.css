@@ -3,14 +3,14 @@ body {
   background: black;
   color: white;
   overflow-x: hidden;
+  font-family: "aosagi", sans-serif;
 }
 
 /* ナビ */
 header {
-  position: fixed; /* ←ここ重要 */
+  position: fixed;
   top: 0;
   width: 100%;
-  text-align: center;
   z-index: 100;
 }
 
@@ -19,10 +19,36 @@ nav {
   justify-content: center;
   gap: 40px;
   padding: 20px 0;
-  background: rgba(0,0,0,0.5); /* ちょいかっこよく */
+  background: rgba(0,0,0,0.6);
 }
 
-/* メイン中央 */
+/* ナビ文字 */
+nav a {
+  font-family: "aosagi";
+  font-size: 20px;
+  letter-spacing: 3px;
+  color: white;
+  text-decoration: none;
+  position: relative;
+}
+
+/* 下線アニメ */
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0%;
+  height: 1px;
+  background: #a855f7;
+  transition: 0.3s;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* メイン */
 .main {
   height: 100vh;
   display: flex;
@@ -34,16 +60,17 @@ nav {
 .logo {
   width: 30vw;
   max-width: 400px;
-  transition: 0.4s ease;
+  transition: all 0.4s ease;
 
   filter: drop-shadow(0 0 10px #a855f7)
           drop-shadow(0 0 20px #a855f7);
 }
 
+/* ホバー */
 .logo:hover {
-  transform: scale(1.08);
+  transform: scale(1.1);
   filter: drop-shadow(0 0 20px #c084fc)
-          drop-shadow(0 0 40px #a855f7);
+          drop-shadow(0 0 50px #a855f7);
 }
 
 /* ===== About ===== */
@@ -53,13 +80,10 @@ nav {
   align-items: center;
   justify-content: center;
   gap: 80px;
-
   min-height: 100vh;
-  padding: 120px 10% 50px; /* ←ナビ分の余白 */
-  box-sizing: border-box;
+  padding: 120px 10% 50px;
 }
 
-/* 画像 */
 .about-image {
   width: 300px;
   height: 300px;
@@ -69,35 +93,16 @@ nav {
   justify-content: center;
 }
 
-/* テキスト */
 .about-text {
   max-width: 500px;
 }
 
 .about-text h1 {
   font-size: 40px;
-  margin-bottom: 20px;
 }
 
 .about-text p {
+  border-left: 2px solid #a855f7;
+  padding-left: 15px;
   line-height: 1.8;
-  border-left: 2px solid #a855f7;
-  padding-left: 15px;
-}
-  border-left: 2px solid #a855f7;
-  padding-left: 15px;
-}
-.about-container {
-  animation: fadeIn 1s ease;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
