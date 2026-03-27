@@ -37,10 +37,9 @@ nav {
 }
 
 nav a {
-  color: #c084ff;
-  text-decoration: none;
-  font-size: 1.2rem;
+  font-family: "aosagi";
 }
+
 
 nav a:hover {
   text-shadow: 0 0 10px #a855f7;
