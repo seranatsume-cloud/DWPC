@@ -1,13 +1,32 @@
+/* フォント */
 @font-face {
   font-family: "aosagi";
   src: url("./aosagi.otf") format("opentype");
 }
+
 body {
   margin: 0;
   background: black;
   color: white;
   overflow-x: hidden;
   font-family: "aosagi", sans-serif;
+}
+
+/* ===== イントロ ===== */
+#intro {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: black;
+  color: #a855f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  letter-spacing: 5px;
+  z-index: 9999;
+  cursor: pointer;
+  transition: 1s;
 }
 
 /* ナビ */
@@ -26,9 +45,7 @@ nav {
   background: rgba(0,0,0,0.6);
 }
 
-/* ナビ文字 */
 nav a {
-  font-family: "aosagi";
   font-size: 20px;
   letter-spacing: 3px;
   color: white;
@@ -36,7 +53,7 @@ nav a {
   position: relative;
 }
 
-/* 下線アニメ */
+/* 下線 */
 nav a::after {
   content: "";
   position: absolute;
@@ -70,42 +87,8 @@ nav a:hover::after {
           drop-shadow(0 0 40px #a855f7);
 }
 
-/* 超わかりやすくする */
 .logo:hover {
   transform: scale(1.15);
   filter: drop-shadow(0 0 30px #c084fc)
           drop-shadow(0 0 80px #a855f7);
-}
-/* ===== About ===== */
-
-.about-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 80px;
-  min-height: 100vh;
-  padding: 120px 10% 50px;
-}
-
-.about-image {
-  width: 300px;
-  height: 300px;
-  border: 1px solid #a855f7;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.about-text {
-  max-width: 500px;
-}
-
-.about-text h1 {
-  font-size: 40px;
-}
-
-.about-text p {
-  border-left: 2px solid #a855f7;
-  padding-left: 15px;
-  line-height: 1.8;
 }
