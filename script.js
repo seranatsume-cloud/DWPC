@@ -24,11 +24,13 @@ document.querySelectorAll(".glitch-text").forEach(el => {
     interval = setInterval(() => {
       el.innerText = original
         .split("")
-        .map(() => {
-          return letters[Math.floor(Math.random() * letters.length)];
-        })
+.map((letter) => {
+  return Math.random() > 0.6
+    ? letter
+    : letters[Math.floor(Math.random() * letters.length)];
+})
         .join("");
-    }, 50); // ←速さ調整
+    }, 80); // ←速さ調整
   });
 
   // カーソル外したら元に戻す
