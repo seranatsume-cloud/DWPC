@@ -7,29 +7,11 @@ if (intro) {
   });
 }
 
-// ===== グリッチ文字 =====
-const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+// 動画あるときだけ
+const video = document.getElementById("introVideo");
 
-document.querySelectorAll(".glitch-text").forEach(el => {
-  el.addEventListener("mouseover", () => {
-    let iteration = 0;
-    const original = el.innerText;
-
-    const interval = setInterval(() => {
-      el.innerText = original
-        .split("")
-        .map((letter, index) => {
-          if (index < iteration) return original[index];
-          return letters[Math.floor(Math.random() * letters.length)];
-        })
-        .join("");
-
-      iteration += 1 / 3;
-
-      if (iteration >= original.length) {
-        clearInterval(interval);
-        el.innerText = original;
-      }
-    }, 30);
-  });
-});
+if (video) {
+  video.onended = () => {
+    intro.style.display = "none";
+  };
+}
