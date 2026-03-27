@@ -5,10 +5,18 @@
 
 body {
   margin: 0;
-  background: radial-gradient(circle at center, #0a0014, #000);
+
+  /* ✨ 完全黒 → 深い黒紫グラデ */
+  background: radial-gradient(
+      circle at 50% 20%,
+      rgba(80, 0, 120, 0.15),
+      transparent 60%
+    ),
+    #0a0014;
+
   color: white;
-  font-family: "aosagi", sans-serif;
   overflow-x: hidden;
+  font-family: "aosagi", sans-serif;
 }
 
 /* ===== イントロ ===== */
