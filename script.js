@@ -29,3 +29,6 @@ document.querySelectorAll(".glitch-text").forEach(el => {
     }, 30);
   });
 });
+intro.addEventListener("click", () => {
+  intro.style.display = "none";
+});
