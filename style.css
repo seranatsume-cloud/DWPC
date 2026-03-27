@@ -134,7 +134,11 @@ nav a:hover::after {
 
   gap: 80px;
 
-  min-height: 100vh;
+  height: 100vh; /* ← minじゃなくてこれ */
+  
+  padding-top: 80px; /* ←ナビ分 */
+  box-sizing: border-box;
+}
 
   /* ナビ分の余白（超重要） */
   padding-top: 120px;
