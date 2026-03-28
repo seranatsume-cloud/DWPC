@@ -382,3 +382,28 @@ nav a:hover::after {
 img {
   max-width: 100%;
 }
+@media (max-width: 768px) {
+
+  .about-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-visual {
+    width: 200px;
+  }
+
+  .profile-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .glass-card {
+    padding: 25px;
+  }
+
+  nav {
+    gap: 15px;
+    font-size: 12px;
+  }
+
+}
