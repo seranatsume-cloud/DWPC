@@ -4,7 +4,7 @@
   src: url("YDWaosagi.otf") format("opentype");
 }
 
-/* ===== 全体 ===== */
+/* ===== 全体共通 ===== */
 body {
   margin: 0;
   font-family: "aosagi", sans-serif;
@@ -58,69 +58,21 @@ nav a:hover::after {
   width: 100%;
 }
 
-/* ===== TOP ===== */
-.main {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.logo {
-  width: 40vw;
-  max-width: 450px;
-  min-width: 220px;
-
-  animation: float 6s ease-in-out infinite;
-
-  filter:
-    drop-shadow(0 0 25px #a855f7)
-    drop-shadow(0 0 50px #a855f7);
-}
-
-@keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0px); }
-}
-
-/* ===== ページ共通 ===== */
+/* ===== ページ共通ラッパー ===== */
 .page-wrapper {
   min-height: 100vh;
   padding: 140px 20px 80px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  box-sizing: border-box;
 }
 
-/* ===== ★Aboutページだけ下に余白追加 ===== */
+/* ===== Aboutページ ===== */
 .about-page .page-wrapper {
-  padding-bottom: 120px;
+  padding-bottom: 140px;
 }
 
-/* ===== ガラスUI ===== */
-.glass-card {
-  width: 100%;
-  max-width: 1000px;
-  margin: 20px auto;
-
-  padding: 40px;
-  border-radius: 25px;
-
-  background: rgba(20, 10, 30, 0.6);
-  backdrop-filter: blur(25px);
-
-  border: 1px solid rgba(168, 85, 247, 0.2);
-
-  position: relative;
-  z-index: 1;
-
-  box-shadow:
-    0 10px 40px rgba(0,0,0,0.6),
-    0 0 30px rgba(168, 85, 247, 0.15);
-}
-
-/* ===== ABOUT ===== */
 .about-title-block {
   text-align: center;
   margin-bottom: 40px;
@@ -260,9 +212,9 @@ nav a:hover::after {
   cursor: pointer;
 }
 
-/* ===== マスコット ===== */
+/* ===== Mascot ===== */
 .mascot-card {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .mascot-container {
@@ -313,12 +265,111 @@ nav a:hover::after {
   margin-bottom: 10px;
 }
 
-/* ガラス間の距離を詰める */
-.mascot-card {
-  margin-top: 10px;
+/* ===== TOPページ専用 ===== */
+.top-page .main {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* Aboutだけ余白 */
-.about-page .page-wrapper {
-  padding-bottom: 140px;
+.top-page .logo {
+  width: 40vw;
+  max-width: 450px;
+  min-width: 220px;
+
+  animation: float 6s ease-in-out infinite;
+
+  filter:
+    drop-shadow(0 0 25px #a855f7)
+    drop-shadow(0 0 50px #a855f7);
+}
+
+.top-page #loading {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at center, #120018, #000);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+}
+
+.top-page .loading-text {
+  font-size: 40px;
+  letter-spacing: 10px;
+  color: #ff4df0;
+  text-shadow:
+    0 0 5px #ff4df0,
+    0 0 15px #ff4df0,
+    0 0 30px #a855f7;
+}
+
+.top-page #loading.fade-out {
+  opacity: 0;
+  transition: 1s;
+  pointer-events: none;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+/* ===== Companyページ ===== */
+.company-page {
+  position: relative;
+  overflow: hidden;
+}
+
+.company-page .bg-logo {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 280px;
+  opacity: 0.03;
+  filter: blur(8px);
+  z-index: 0;
+  pointer-events: none;
+  animation: floatLogo 10s ease-in-out infinite;
+}
+
+@keyframes floatLogo {
+  0% { transform: translate(-50%, -50%) }
+  50% { transform: translate(-50%, -55%) }
+  100% { transform: translate(-50%, -50%) }
+}
+
+.company-page .company-title,
+.company-page .company-sub,
+.company-page .company-text,
+.company-page .secret-text {
+  position: relative;
+  z-index: 2;
+}
+
+.company-page .company-title {
+  font-size: 36px;
+  color: #c084fc;
+  letter-spacing: 4px;
+}
+
+.company-page .company-sub {
+  font-size: 18px;
+  margin-bottom: 40px;
+  color: #a855f7;
+}
+
+.company-page .company-text p {
+  margin-bottom: 20px;
+  line-height: 1.8;
+}
+
+.company-page .secret-text {
+  margin-top: 40px;
+  font-size: 14px;
+  color: rgba(255,255,255,0.35);
+  font-style: italic;
 }
