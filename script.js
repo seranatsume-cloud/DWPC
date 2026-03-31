@@ -141,3 +141,36 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }, 40);
 });
+// 文字スクランブル表示
+function scrambleText(element, delay = 0) {
+  const text = element.innerText;
+  const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  let iterations = 0;
+
+  element.innerText = "";
+
+  setTimeout(() => {
+    const interval = setInterval(() => {
+      element.innerText = text
+        .split("")
+        .map((char, index) => {
+          if (index < iterations) return text[index];
+          return chars[Math.floor(Math.random() * chars.length)];
+        })
+        .join("");
+
+      if (iterations >= text.length) clearInterval(interval);
+
+      iterations += 1 / 2;
+    }, 30);
+  }, delay);
+}
+
+// ページ読み込み時に発火
+window.addEventListener("DOMContentLoaded", () => {
+  const targets = document.querySelectorAll(".scramble");
+
+  targets.forEach((el, index) => {
+    scrambleText(el, index * 200); // ←順番に出る
+  });
+});
