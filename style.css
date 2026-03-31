@@ -435,3 +435,6 @@ nav a:hover::after {
   position: relative;
   z-index: 1;
 }
+.about-page .page-wrapper {
+  padding-bottom: 120px;
+}
