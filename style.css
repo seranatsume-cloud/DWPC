@@ -313,6 +313,6 @@ nav a:hover::after {
   margin-bottom: 10px;
 }
 
-.shinsou + .mascot-card {
+.about + .mascot-card {
   margin-top: 10px; /* ← ほぼくっつく */
 }
