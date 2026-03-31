@@ -108,7 +108,8 @@ if (canvas) {
 }
 
 // ===== ローディング =====
-document.addEventListener("DOMContentLoaded", () => {
+// DOMContentLoaded ではなく load で確実に全要素読み込み後に処理
+window.addEventListener("load", () => {
   const loading = document.getElementById("loading");
   const text = document.querySelector(".loading-text");
 
@@ -141,6 +142,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }, 40);
 });
+
 // 文字スクランブル表示
 function scrambleText(element, delay = 0) {
   const text = element.innerText;
@@ -167,7 +169,7 @@ function scrambleText(element, delay = 0) {
 }
 
 // ページ読み込み時に発火
-window.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("load", () => {
   const targets = document.querySelectorAll(".scramble");
 
   targets.forEach((el, index) => {
