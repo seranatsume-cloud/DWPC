@@ -365,3 +365,51 @@ nav a:hover::after {
 @keyframes fadeIn {
   to { opacity: 1; }
 }
+/* ===== マスコット ===== */
+.mascot-card {
+  margin-top: 40px;
+}
+
+.mascot-title {
+  text-align: center;
+  color: #c084fc;
+  margin-bottom: 30px;
+  letter-spacing: 4px;
+}
+
+/* レイアウト */
+.mascot-container {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+
+/* 画像 */
+.mascot-visual {
+  width: 40%;
+  text-align: center;
+  position: relative;
+}
+
+.mascot-visual img {
+  width: 100%;
+  max-width: 260px;
+
+  filter:
+    drop-shadow(0 0 15px rgba(168,85,247,0.5));
+}
+
+/* 説明 */
+.mascot-info {
+  width: 60%;
+}
+
+.mascot-info h3 {
+  color: #a855f7;
+  margin-bottom: 15px;
+}
+
+.mascot-info p {
+  line-height: 1.8;
+  margin-bottom: 10px;
+}
