@@ -1,46 +1,16 @@
-// ===== グリッチローディング =====
-window.addEventListener("load", () => {
-  const el = document.querySelector(".loading-text");
-  const loading = document.getElementById("loading");
+// ===== イントロ =====
+document.addEventListener("DOMContentLoaded", () => {
+  const intro = document.getElementById("intro");
 
-  if (!el || !loading) return;
-
-  const originalText = el.textContent;
-  const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#$%&@";
-
-  let iteration = 0;
-
-  el.classList.add("loading-glitch");
-
-  const interval = setInterval(() => {
-    el.textContent = originalText
-      .split("")
-      .map((char, index) => {
-        if (index < iteration) return originalText[index];
-        return chars[Math.floor(Math.random() * chars.length)];
-      })
-      .join("");
-
-    iteration += 0.3;
-
-    if (iteration >= originalText.length) {
-      clearInterval(interval);
-
-      el.textContent = originalText;
-      el.classList.remove("loading-glitch");
-
-      setTimeout(() => {
-        loading.classList.add("fade-out");
-
-        setTimeout(() => {
-          loading.style.display = "none";
-        }, 1000);
-      }, 500);
-    }
-  }, 30);
+  if (intro) {
+    intro.addEventListener("click", () => {
+      intro.style.opacity = "0";
+      setTimeout(() => intro.remove(), 800);
+    });
+  }
 });
 
-// ===== グリッチ（ホバー） =====
+// ===== グリッチエフェクト =====
 const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
 
 document.querySelectorAll(".glitch-text").forEach(el => {
@@ -60,7 +30,6 @@ document.querySelectorAll(".glitch-text").forEach(el => {
         .join("");
 
       if (iteration >= original.length) clearInterval(interval);
-
       iteration += 1 / 3;
     }, 30);
   });
@@ -71,7 +40,7 @@ document.querySelectorAll(".glitch-text").forEach(el => {
   });
 });
 
-// ===== ナビ初回グリッチ =====
+// ===== 初回グリッチ =====
 window.addEventListener("load", () => {
   document.querySelectorAll(".glitch-text").forEach(el => {
     const original = el.innerText;
@@ -87,9 +56,36 @@ window.addEventListener("load", () => {
         .join("");
 
       if (iteration >= original.length) clearInterval(interval);
-
-      iteration += 1 / 2;
+      iteration += 0.5;
     }, 40);
+  });
+});
+
+// ===== Swiper =====
+window.addEventListener("load", () => {
+  if (document.querySelector(".mySwiper")) {
+    new Swiper(".mySwiper", {
+      loop: true,
+      centeredSlides: true,
+      slidesPerView: "auto",
+      spaceBetween: 20,
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true
+      }
+    });
+  }
+});
+
+// ===== 上に戻る =====
+document.querySelectorAll(".back-top").forEach(btn => {
+  btn.addEventListener("click", e => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: "smooth" });
   });
 });
 
@@ -97,7 +93,6 @@ window.addEventListener("load", () => {
 const canvas = document.getElementById("particles");
 if (canvas) {
   const ctx = canvas.getContext("2d");
-
   let particles = [];
 
   function resize() {
@@ -128,7 +123,7 @@ if (canvas) {
 
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-      ctx.fillStyle = "rgba(180, 150, 255, 0.15)";
+      ctx.fillStyle = "rgba(180,150,255,0.15)";
       ctx.fill();
     });
 
@@ -137,3 +132,38 @@ if (canvas) {
 
   animate();
 }
+
+// ===== ローディング（追加） =====
+document.addEventListener("DOMContentLoaded", () => {
+  const loading = document.getElementById("loading");
+  const text = document.querySelector(".loading-text");
+
+  if (!loading || !text) return;
+
+  const original = "LOADING";
+  let iteration = 0;
+
+  const interval = setInterval(() => {
+    text.innerText = original
+      .split("")
+      .map((char, i) => {
+        if (i < iteration) return original[i];
+        return letters[Math.floor(Math.random() * letters.length)];
+      })
+      .join("");
+
+    iteration += Math.random() * 0.5;
+
+    if (iteration >= original.length) {
+      clearInterval(interval);
+
+      setTimeout(() => {
+        loading.classList.add("fade-out");
+
+        setTimeout(() => {
+          loading.style.display = "none";
+        }, 1000);
+      }, 800);
+    }
+  }, 40);
+});
