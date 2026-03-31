@@ -270,7 +270,7 @@ header,
   background: radial-gradient(circle, rgba(168,85,247,0.18), transparent 70%);
   filter: blur(50px);
 
-  z-index: 0;
+  z-index: 0.1;
 }
 
 /* ===== 立ち絵 ===== */
@@ -279,11 +279,11 @@ header,
   z-index: 1;
 
   /* ★ サイズアップ */
-  width: 130%;
+  width: 200%;
   max-width: 380px;
 
   /* ★ 少し上に */
-  transform: translateY(-20px);
+  transform: translateY(-40px);
 
   filter: drop-shadow(0 0 15px rgba(168,85,247,0.5));
 }
