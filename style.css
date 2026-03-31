@@ -102,7 +102,7 @@ nav a:hover::after {
 .glass-card {
   width: 100%;
   max-width: 1000px;
-  margin: 30px auto;
+  margin: 20px auto;
 
   padding: 40px;
   border-radius: 25px;
@@ -313,6 +313,12 @@ nav a:hover::after {
   margin-bottom: 10px;
 }
 
-.about + .mascot-card {
-  margin-top: 10px; /* ← ほぼくっつく */
+/* ガラス間の距離を詰める */
+.mascot-card {
+  margin-top: 10px;
+}
+
+/* Aboutだけ余白 */
+.about-page .page-wrapper {
+  padding-bottom: 140px;
 }
