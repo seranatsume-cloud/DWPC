@@ -312,3 +312,7 @@ nav a:hover::after {
   line-height: 1.8;
   margin-bottom: 10px;
 }
+
+.shinsou + .mascot-card {
+  margin-top: 10px; /* ← ほぼくっつく */
+}
