@@ -250,7 +250,7 @@ header,
   text-align: center;
 
   /* ★ 上に持ち上げる */
-  margin-top: -40px;
+  margin-top: -90px;
 }
 
 /* ===== 紫の光（弱くする） ===== */
@@ -279,7 +279,7 @@ header,
   z-index: 1;
 
   /* ★ サイズアップ */
-  width: 115%;
+  width: 130%;
   max-width: 380px;
 
   /* ★ 少し上に */
