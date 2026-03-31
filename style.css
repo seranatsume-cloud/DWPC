@@ -243,31 +243,47 @@ header,
   text-align: center;
 }
 
-/* 紫の光 */
+/* ===== 左：立ち絵エリア ===== */
+.about-visual {
+  position: relative;
+  width: 40%;
+  text-align: center;
+
+  /* ★ 上に持ち上げる */
+  margin-top: -40px;
+}
+
+/* ===== 紫の光（弱くする） ===== */
 .about-visual::before {
   content: "";
   position: absolute;
-  top: 50%;
+  top: 45%; /* 少し上に寄せる */
   left: 50%;
-  width: 300px;
-  height: 300px;
+
+  width: 260px;
+  height: 260px;
 
   transform: translate(-50%, -50%);
   border-radius: 50%;
 
-  background: radial-gradient(circle, rgba(168,85,247,0.4), transparent 70%);
-  filter: blur(40px);
+  /* ★ 光を弱く */
+  background: radial-gradient(circle, rgba(168,85,247,0.18), transparent 70%);
+  filter: blur(50px);
 
   z-index: 0;
 }
 
-/* 画像を前に出す */
+/* ===== 立ち絵 ===== */
 .about-visual img {
   position: relative;
   z-index: 1;
 
-  width: 100%;
-  max-width: 320px;
+  /* ★ サイズアップ */
+  width: 115%;
+  max-width: 380px;
 
-  filter: drop-shadow(0 0 20px rgba(168,85,247,0.7));
+  /* ★ 少し上に */
+  transform: translateY(-20px);
+
+  filter: drop-shadow(0 0 15px rgba(168,85,247,0.5));
 }
