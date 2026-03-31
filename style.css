@@ -256,11 +256,6 @@ nav a:hover::after {
   transition: 1s;
   pointer-events: none;
 }
-/* ===== あおさぎフォント ===== */
-@font-face {
-  font-family: "Aosagi";
-  src: url("Aosagi.ttf") format("truetype");
-}
 
 /* フォント適用クラス */
 .aosagi-font {
