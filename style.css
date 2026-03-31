@@ -256,3 +256,93 @@ nav a:hover::after {
   transition: 1s;
   pointer-events: none;
 }
+/* ===== あおさぎフォント ===== */
+@font-face {
+  font-family: "Aosagi";
+  src: url("Aosagi.ttf") format("truetype");
+}
+
+/* フォント適用クラス */
+.aosagi-font {
+  font-family: "Aosagi", serif;
+}
+
+
+/* ===== タイトルブロック ===== */
+.about-title-block {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* メイン名前 */
+.about-mainname {
+  font-size: 64px;
+  color: #fff;
+  letter-spacing: 4px;
+  margin: 0;
+}
+
+/* 英語名 */
+.about-subname-en {
+  font-size: 14px;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 6px;
+  margin-top: 5px;
+}
+
+
+/* ===== レイアウト ===== */
+.about-card {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+/* 左：画像 */
+.about-visual {
+  width: 40%;
+  text-align: center;
+}
+
+.about-visual img {
+  width: 100%;
+  max-width: 300px;
+}
+
+/* 右：プロフィール */
+.about-info {
+  width: 60%;
+}
+
+
+/* ===== キャッチコピー ===== */
+.about-catch {
+  font-size: 18px;
+  color: #c084fc;
+  margin-bottom: 20px;
+}
+
+
+/* ===== プロフィール ===== */
+.profile-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+
+/* ===== 自己紹介 ===== */
+.about-textbox {
+  color: #fff;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+
+/* ===== 注意書き ===== */
+.about-note {
+  font-size: 12px;
+  color: rgba(255,255,255,0.5);
+}
