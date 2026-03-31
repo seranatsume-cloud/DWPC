@@ -2,8 +2,13 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>深界製薬</title>
+
 <link rel="stylesheet" href="style.css">
+
+<!-- favicon（エラー防止） -->
+<link rel="icon" href="logo.png">
 </head>
 
 <body>
@@ -11,11 +16,12 @@
 <!-- ===== ローディング ===== -->
 <div id="loading">
   <div class="loading-text">LOADING</div>
-  <div class="loading-bar"></div>
 </div>
 
+<!-- ===== 背景エフェクト ===== -->
 <canvas id="particles"></canvas>
 
+<!-- ===== ナビ ===== -->
 <header>
   <nav>
     <a href="index.html" class="glitch-text">TOP</a>
@@ -26,10 +32,12 @@
   </nav>
 </header>
 
-<div class="main">
-  <img src="logo.png" class="logo">
-</div>
+<!-- ===== メイン（ロゴ中央） ===== -->
+<main class="main">
+  <img src="logo.png" class="logo" alt="logo">
+</main>
 
 <script src="script.js"></script>
+
 </body>
 </html>
