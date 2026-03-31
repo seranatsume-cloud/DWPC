@@ -93,7 +93,7 @@ nav a:hover::after {
   align-items: center;
 }
 
-/* ===== ガラスUI ===== */
+/* ===== ガラスUI（重要修正あり） ===== */
 .glass-card {
   width: 100%;
   max-width: 1000px;
@@ -108,6 +108,7 @@ nav a:hover::after {
   border: 1px solid rgba(168, 85, 247, 0.2);
 
   position: relative;
+  z-index: 1; /* ← 追加 */
 
   box-shadow:
     0 10px 40px rgba(0,0,0,0.6),
@@ -140,13 +141,33 @@ nav a:hover::after {
 }
 
 .about-visual {
+  position: relative;
   width: 40%;
   text-align: center;
+  margin-top: -90px;
+}
+
+.about-visual::before {
+  content: "";
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  width: 260px;
+  height: 260px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(168,85,247,0.18), transparent 70%);
+  filter: blur(50px);
+  z-index: 0;
 }
 
 .about-visual img {
-  width: 100%;
-  max-width: 320px;
+  position: relative;
+  z-index: 1;
+  width: 200%;
+  max-width: 380px;
+  transform: translateY(-40px);
+  filter: drop-shadow(0 0 15px rgba(168,85,247,0.5));
 }
 
 .about-info {
@@ -176,117 +197,7 @@ nav a:hover::after {
   color: rgba(255,255,255,0.5);
 }
 
-/* ===== 戻るボタン ===== */
-.back-top {
-  width: 60px;
-  height: 60px;
-  margin: 40px auto 0;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  border-radius: 15px;
-  border: 1px solid rgba(168,85,247,0.4);
-
-  background: rgba(20,10,30,0.6);
-  backdrop-filter: blur(10px);
-
-  font-size: 22px;
-  cursor: pointer;
-}
-
-/* ===== LOADING ===== */
-#loading {
-  position: fixed;
-  inset: 0;
-  background: radial-gradient(circle at center, #120018, #000);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 99999;
-}
-
-.loading-text {
-  font-size: 40px;
-  letter-spacing: 10px;
-  color: #ff4df0;
-
-  text-shadow:
-    0 0 5px #ff4df0,
-    0 0 15px #ff4df0,
-    0 0 30px #a855f7;
-}
-
-#loading.fade-out {
-  opacity: 0;
-  transition: 1s;
-  pointer-events: none;
-}
-#particles {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-}
-
-header,
-.main {
-  position: relative;
-  z-index: 1;
-}
-.about-visual {
-  position: relative;
-  width: 40%;
-  text-align: center;
-}
-
-/* ===== 左：立ち絵エリア ===== */
-.about-visual {
-  position: relative;
-  width: 40%;
-  text-align: center;
-
-  /* ★ 上に持ち上げる */
-  margin-top: -90px;
-}
-
-/* ===== 紫の光（弱くする） ===== */
-.about-visual::before {
-  content: "";
-  position: absolute;
-  top: 45%; /* 少し上に寄せる */
-  left: 50%;
-
-  width: 260px;
-  height: 260px;
-
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-
-  /* ★ 光を弱く */
-  background: radial-gradient(circle, rgba(168,85,247,0.18), transparent 70%);
-  filter: blur(50px);
-
-  z-index: 0.1;
-}
-
-/* ===== 立ち絵 ===== */
-.about-visual img {
-  position: relative;
-  z-index: 1;
-
-  /* ★ サイズアップ */
-  width: 200%;
-  max-width: 380px;
-
-  /* ★ 少し上に */
-  transform: translateY(-40px);
-
-  filter: drop-shadow(0 0 15px rgba(168,85,247,0.5));
-}
+/* ===== LINKS ===== */
 .links-list {
   display: flex;
   flex-direction: column;
@@ -297,14 +208,11 @@ header,
 .link-item {
   display: block;
   padding: 15px;
-
   border-radius: 15px;
   text-decoration: none;
   color: white;
-
   background: rgba(168, 85, 247, 0.1);
   border: 1px solid rgba(168, 85, 247, 0.3);
-
   transition: 0.3s;
 }
 
@@ -312,14 +220,14 @@ header,
   background: rgba(168, 85, 247, 0.3);
   transform: scale(1.05);
 }
+
+/* ===== COMING SOON ===== */
 .coming-soon {
   margin-top: 80px;
   font-size: 36px;
   letter-spacing: 8px;
   color: #c084fc;
-
   animation: flicker 1.5s infinite alternate;
-
   text-shadow:
     0 0 5px #c084fc,
     0 0 20px #a855f7,
@@ -330,21 +238,43 @@ header,
   0% { opacity: 0.5; }
   100% { opacity: 1; }
 }
+
+/* ===== COMPANY（完全修正版） ===== */
 .company {
   position: relative;
   overflow: hidden;
 }
 
-/* 背景ロゴ */
+/* 背景ロゴ（修正版） */
 .bg-logo {
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 400px;
-  opacity: 0.05;
-  filter: blur(6px);
+
+  width: 280px;
+  opacity: 0.03;
+  filter: blur(8px);
+
+  z-index: 0;
   pointer-events: none;
+
+  animation: floatLogo 10s ease-in-out infinite;
+}
+
+@keyframes floatLogo {
+  0% { transform: translate(-50%, -50%) }
+  50% { transform: translate(-50%, -55%) }
+  100% { transform: translate(-50%, -50%) }
+}
+
+/* 前面固定（超重要） */
+.company-title,
+.company-sub,
+.company-text,
+.secret-text {
+  position: relative;
+  z-index: 2;
 }
 
 /* タイトル */
@@ -365,13 +295,68 @@ header,
   line-height: 1.8;
 }
 
-/* 不穏テキスト（位置は普通・斜めだけ） */
+/* 不穏テキスト */
 .secret-text {
   margin-top: 40px;
   font-size: 14px;
   color: rgba(255,255,255,0.35);
   font-style: italic;
 }
+
+/* ===== 戻るボタン ===== */
+.back-top {
+  width: 60px;
+  height: 60px;
+  margin: 40px auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  border: 1px solid rgba(168,85,247,0.4);
+  background: rgba(20,10,30,0.6);
+  backdrop-filter: blur(10px);
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/* ===== LOADING ===== */
+#loading {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at center, #120018, #000);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+}
+
+.loading-text {
+  font-size: 40px;
+  letter-spacing: 10px;
+  color: #ff4df0;
+  text-shadow:
+    0 0 5px #ff4df0,
+    0 0 15px #ff4df0,
+    0 0 30px #a855f7;
+}
+
+#loading.fade-out {
+  opacity: 0;
+  transition: 1s;
+  pointer-events: none;
+}
+
+/* ===== 背景パーティクル ===== */
+#particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+/* ===== スクランブル演出 ===== */
 .scramble {
   opacity: 0;
   animation: fadeIn 0.5s forwards;
