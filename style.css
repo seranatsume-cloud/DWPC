@@ -4,7 +4,7 @@
   src: url("YDWaosagi.otf") format("opentype");
 }
 
-/* ===== 全体共通 ===== */
+/* ===== 全体 ===== */
 body {
   margin: 0;
   font-family: "aosagi", sans-serif;
@@ -58,21 +58,64 @@ nav a:hover::after {
   width: 100%;
 }
 
-/* ===== ページ共通ラッパー ===== */
+/* ===== TOP ===== */
+.main {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  width: 40vw;
+  max-width: 450px;
+  min-width: 220px;
+
+  animation: float 6s ease-in-out infinite;
+
+  filter:
+    drop-shadow(0 0 25px #a855f7)
+    drop-shadow(0 0 50px #a855f7);
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+/* ===== ページ共通 ===== */
 .page-wrapper {
   min-height: 100vh;
   padding: 140px 20px 80px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-sizing: border-box;
 }
 
-/* ===== Aboutページ ===== */
-.about-page .page-wrapper {
-  padding-bottom: 140px;
+/* ===== ガラスUI（重要修正あり） ===== */
+.glass-card {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+
+  padding: 40px;
+  border-radius: 25px;
+
+  background: rgba(20, 10, 30, 0.6);
+  backdrop-filter: blur(25px);
+
+  border: 1px solid rgba(168, 85, 247, 0.2);
+
+  position: relative;
+  z-index: 1; /* ← 追加 */
+
+  box-shadow:
+    0 10px 40px rgba(0,0,0,0.6),
+    0 0 30px rgba(168, 85, 247, 0.15);
 }
 
+/* ===== ABOUT ===== */
 .about-title-block {
   text-align: center;
   margin-bottom: 40px;
@@ -196,6 +239,70 @@ nav a:hover::after {
   100% { opacity: 1; }
 }
 
+/* ===== COMPANY（完全修正版） ===== */
+.company {
+  position: relative;
+  overflow: hidden;
+}
+
+/* 背景ロゴ（修正版） */
+.bg-logo {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 280px;
+  opacity: 0.03;
+  filter: blur(8px);
+
+  z-index: 0;
+  pointer-events: none;
+
+  animation: floatLogo 10s ease-in-out infinite;
+}
+
+@keyframes floatLogo {
+  0% { transform: translate(-50%, -50%) }
+  50% { transform: translate(-50%, -55%) }
+  100% { transform: translate(-50%, -50%) }
+}
+
+/* 前面固定（超重要） */
+.company-title,
+.company-sub,
+.company-text,
+.secret-text {
+  position: relative;
+  z-index: 2;
+}
+
+/* タイトル */
+.company-title {
+  font-size: 36px;
+  color: #c084fc;
+  letter-spacing: 4px;
+}
+
+.company-sub {
+  font-size: 18px;
+  margin-bottom: 40px;
+  color: #a855f7;
+}
+
+.company-text p {
+  margin-bottom: 20px;
+  line-height: 1.8;
+}
+
+/* 不穏テキスト */
+.secret-text {
+  margin-top: 40px;
+  font-size: 14px;
+  color: rgba(255,255,255,0.35);
+  font-style: italic;
+}
+
 /* ===== 戻るボタン ===== */
 .back-top {
   width: 60px;
@@ -212,80 +319,8 @@ nav a:hover::after {
   cursor: pointer;
 }
 
-/* ===== Mascot ===== */
-.mascot-card {
-  margin-top: 10px;
-}
-
-.mascot-container {
-  display: flex;
-  gap: 40px;
-  align-items: center;
-}
-
-.mascot-visual {
-  width: 40%;
-  text-align: center;
-  position: relative;
-}
-
-.mascot-visual::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 200px;
-  height: 200px;
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(168,85,247,0.2), transparent 70%);
-  filter: blur(40px);
-  z-index: 0;
-}
-
-.mascot-visual img {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  max-width: 260px;
-  filter: drop-shadow(0 0 15px rgba(168,85,247,0.5));
-}
-
-.mascot-info {
-  width: 60%;
-}
-
-.mascot-info h3 {
-  color: #a855f7;
-  margin-bottom: 15px;
-}
-
-.mascot-info p {
-  line-height: 1.8;
-  margin-bottom: 10px;
-}
-
-/* ===== TOPページ専用 ===== */
-.top-page .main {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.top-page .logo {
-  width: 40vw;
-  max-width: 450px;
-  min-width: 220px;
-
-  animation: float 6s ease-in-out infinite;
-
-  filter:
-    drop-shadow(0 0 25px #a855f7)
-    drop-shadow(0 0 50px #a855f7);
-}
-
-.top-page #loading {
+/* ===== LOADING ===== */
+#loading {
   position: fixed;
   inset: 0;
   background: radial-gradient(circle at center, #120018, #000);
@@ -295,7 +330,7 @@ nav a:hover::after {
   z-index: 99999;
 }
 
-.top-page .loading-text {
+.loading-text {
   font-size: 40px;
   letter-spacing: 10px;
   color: #ff4df0;
@@ -305,71 +340,28 @@ nav a:hover::after {
     0 0 30px #a855f7;
 }
 
-.top-page #loading.fade-out {
+#loading.fade-out {
   opacity: 0;
   transition: 1s;
   pointer-events: none;
 }
 
-@keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0px); }
-}
-
-/* ===== Companyページ ===== */
-.company-page {
-  position: relative;
-  overflow: hidden;
-}
-
-.company-page .bg-logo {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 280px;
-  opacity: 0.03;
-  filter: blur(8px);
+/* ===== 背景パーティクル ===== */
+#particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   z-index: 0;
-  pointer-events: none;
-  animation: floatLogo 10s ease-in-out infinite;
 }
 
-@keyframes floatLogo {
-  0% { transform: translate(-50%, -50%) }
-  50% { transform: translate(-50%, -55%) }
-  100% { transform: translate(-50%, -50%) }
+/* ===== スクランブル演出 ===== */
+.scramble {
+  opacity: 0;
+  animation: fadeIn 0.5s forwards;
 }
 
-.company-page .company-title,
-.company-page .company-sub,
-.company-page .company-text,
-.company-page .secret-text {
-  position: relative;
-  z-index: 2;
-}
-
-.company-page .company-title {
-  font-size: 36px;
-  color: #c084fc;
-  letter-spacing: 4px;
-}
-
-.company-page .company-sub {
-  font-size: 18px;
-  margin-bottom: 40px;
-  color: #a855f7;
-}
-
-.company-page .company-text p {
-  margin-bottom: 20px;
-  line-height: 1.8;
-}
-
-.company-page .secret-text {
-  margin-top: 40px;
-  font-size: 14px;
-  color: rgba(255,255,255,0.35);
-  font-style: italic;
+@keyframes fadeIn {
+  to { opacity: 1; }
 }
