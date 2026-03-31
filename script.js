@@ -1,19 +1,46 @@
-// ===== イントロ =====
-window.addEventListener("DOMContentLoaded", () => {
-  const intro = document.getElementById("intro");
+// ===== グリッチローディング =====
+window.addEventListener("load", () => {
+  const el = document.querySelector(".loading-text");
+  const loading = document.getElementById("loading");
 
-  if (intro) {
-    intro.addEventListener("click", () => {
-      intro.style.opacity = "0";
+  if (!el || !loading) return;
+
+  const originalText = el.textContent;
+  const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#$%&@";
+
+  let iteration = 0;
+
+  el.classList.add("loading-glitch");
+
+  const interval = setInterval(() => {
+    el.textContent = originalText
+      .split("")
+      .map((char, index) => {
+        if (index < iteration) return originalText[index];
+        return chars[Math.floor(Math.random() * chars.length)];
+      })
+      .join("");
+
+    iteration += 0.3;
+
+    if (iteration >= originalText.length) {
+      clearInterval(interval);
+
+      el.textContent = originalText;
+      el.classList.remove("loading-glitch");
 
       setTimeout(() => {
-        intro.remove();
-      }, 800);
-    });
-  }
+        loading.classList.add("fade-out");
+
+        setTimeout(() => {
+          loading.style.display = "none";
+        }, 1000);
+      }, 500);
+    }
+  }, 30);
 });
 
-// ===== グリッチエフェクト =====
+// ===== グリッチ（ホバー） =====
 const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
 
 document.querySelectorAll(".glitch-text").forEach(el => {
@@ -44,7 +71,7 @@ document.querySelectorAll(".glitch-text").forEach(el => {
   });
 });
 
-// ===== ページロード時にナビ文字を一瞬グリッチさせる =====
+// ===== ナビ初回グリッチ =====
 window.addEventListener("load", () => {
   document.querySelectorAll(".glitch-text").forEach(el => {
     const original = el.innerText;
@@ -66,37 +93,6 @@ window.addEventListener("load", () => {
   });
 });
 
-// ===== Swiper（ポートフォリオ） =====
-window.addEventListener("load", () => {
-  if (document.querySelector(".mySwiper")) {
-    new Swiper(".mySwiper", {
-      loop: true,
-      centeredSlides: true,
-      slidesPerView: "auto",
-      spaceBetween: 20,
-      autoplay: {
-        delay: 3000,
-        disableOnInteraction: false
-      },
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true
-      }
-    });
-  }
-});
-
-// ===== 上に戻るボタン =====
-document.querySelectorAll(".back-top").forEach(btn => {
-  btn.addEventListener("click", (e) => {
-    e.preventDefault();
-
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
-  });
-});
 // ===== パーティクル =====
 const canvas = document.getElementById("particles");
 if (canvas) {
@@ -111,7 +107,6 @@ if (canvas) {
   resize();
   window.addEventListener("resize", resize);
 
-  // 粒生成
   for (let i = 0; i < 60; i++) {
     particles.push({
       x: Math.random() * canvas.width,
@@ -129,13 +124,10 @@ if (canvas) {
 
       if (p.y < 0) {
         p.y = canvas.height;
-        p.x += Math.sin(p.y * 0.01) * 0.2;
       }
 
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-
-      // ✨ 深海っぽい淡い光
       ctx.fillStyle = "rgba(180, 150, 255, 0.15)";
       ctx.fill();
     });
