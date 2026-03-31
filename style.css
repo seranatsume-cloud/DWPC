@@ -237,3 +237,37 @@ header,
   position: relative;
   z-index: 1;
 }
+.about-visual {
+  position: relative;
+  width: 40%;
+  text-align: center;
+}
+
+/* 紫の光 */
+.about-visual::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300px;
+  height: 300px;
+
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+
+  background: radial-gradient(circle, rgba(168,85,247,0.4), transparent 70%);
+  filter: blur(40px);
+
+  z-index: 0;
+}
+
+/* 画像を前に出す */
+.about-visual img {
+  position: relative;
+  z-index: 1;
+
+  width: 100%;
+  max-width: 320px;
+
+  filter: drop-shadow(0 0 20px rgba(168,85,247,0.7));
+}
