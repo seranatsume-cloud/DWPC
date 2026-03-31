@@ -58,19 +58,44 @@ nav a:hover::after {
   width: 100%;
 }
 
+/* ===== TOP ===== */
+.main {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  width: 40vw;
+  max-width: 450px;
+  min-width: 220px;
+
+  animation: float 6s ease-in-out infinite;
+
+  filter:
+    drop-shadow(0 0 25px #a855f7)
+    drop-shadow(0 0 50px #a855f7);
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
 /* ===== ページ共通 ===== */
 .page-wrapper {
   min-height: 100vh;
-  padding: 140px 20px 80px; /* ナビの下に余白確保 */
+  padding: 140px 20px 80px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-sizing: border-box; /* 余白による下がりを補正 */
 }
 
 /* ===== ★Aboutページだけ下に余白追加 ===== */
 .about-page .page-wrapper {
-  padding-bottom: 140px;
+  padding-bottom: 120px;
 }
 
 /* ===== ガラスUI ===== */
@@ -237,7 +262,7 @@ nav a:hover::after {
 
 /* ===== マスコット ===== */
 .mascot-card {
-  margin-top: 10px; /* Aboutページは余白少なめ */
+  margin-top: 20px;
 }
 
 .mascot-container {
@@ -286,4 +311,14 @@ nav a:hover::after {
 .mascot-info p {
   line-height: 1.8;
   margin-bottom: 10px;
+}
+
+/* ガラス間の距離を詰める */
+.mascot-card {
+  margin-top: 10px;
+}
+
+/* Aboutだけ余白 */
+.about-page .page-wrapper {
+  padding-bottom: 140px;
 }
