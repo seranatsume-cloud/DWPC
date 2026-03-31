@@ -93,11 +93,16 @@ nav a:hover::after {
   align-items: center;
 }
 
-/* ===== ガラスUI（重要修正あり） ===== */
+/* ===== ★Aboutページだけ下に余白追加 ===== */
+.about-page .page-wrapper {
+  padding-bottom: 120px;
+}
+
+/* ===== ガラスUI ===== */
 .glass-card {
   width: 100%;
   max-width: 1000px;
-  margin: 0 auto;
+  margin: 30px auto;
 
   padding: 40px;
   border-radius: 25px;
@@ -108,7 +113,7 @@ nav a:hover::after {
   border: 1px solid rgba(168, 85, 247, 0.2);
 
   position: relative;
-  z-index: 1; /* ← 追加 */
+  z-index: 1;
 
   box-shadow:
     0 10px 40px rgba(0,0,0,0.6),
@@ -239,70 +244,6 @@ nav a:hover::after {
   100% { opacity: 1; }
 }
 
-/* ===== COMPANY（完全修正版） ===== */
-.company {
-  position: relative;
-  overflow: hidden;
-}
-
-/* 背景ロゴ（修正版） */
-.bg-logo {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
-  width: 280px;
-  opacity: 0.03;
-  filter: blur(8px);
-
-  z-index: 0;
-  pointer-events: none;
-
-  animation: floatLogo 10s ease-in-out infinite;
-}
-
-@keyframes floatLogo {
-  0% { transform: translate(-50%, -50%) }
-  50% { transform: translate(-50%, -55%) }
-  100% { transform: translate(-50%, -50%) }
-}
-
-/* 前面固定（超重要） */
-.company-title,
-.company-sub,
-.company-text,
-.secret-text {
-  position: relative;
-  z-index: 2;
-}
-
-/* タイトル */
-.company-title {
-  font-size: 36px;
-  color: #c084fc;
-  letter-spacing: 4px;
-}
-
-.company-sub {
-  font-size: 18px;
-  margin-bottom: 40px;
-  color: #a855f7;
-}
-
-.company-text p {
-  margin-bottom: 20px;
-  line-height: 1.8;
-}
-
-/* 不穏テキスト */
-.secret-text {
-  margin-top: 40px;
-  font-size: 14px;
-  color: rgba(255,255,255,0.35);
-  font-style: italic;
-}
-
 /* ===== 戻るボタン ===== */
 .back-top {
   width: 60px;
@@ -319,87 +260,45 @@ nav a:hover::after {
   cursor: pointer;
 }
 
-/* ===== LOADING ===== */
-#loading {
-  position: fixed;
-  inset: 0;
-  background: radial-gradient(circle at center, #120018, #000);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 99999;
-}
-
-.loading-text {
-  font-size: 40px;
-  letter-spacing: 10px;
-  color: #ff4df0;
-  text-shadow:
-    0 0 5px #ff4df0,
-    0 0 15px #ff4df0,
-    0 0 30px #a855f7;
-}
-
-#loading.fade-out {
-  opacity: 0;
-  transition: 1s;
-  pointer-events: none;
-}
-
-/* ===== 背景パーティクル ===== */
-#particles {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-}
-
-/* ===== スクランブル演出 ===== */
-.scramble {
-  opacity: 0;
-  animation: fadeIn 0.5s forwards;
-}
-
-@keyframes fadeIn {
-  to { opacity: 1; }
-}
 /* ===== マスコット ===== */
 .mascot-card {
   margin-top: 20px;
 }
 
-.mascot-title {
-  text-align: center;
-  color: #c084fc;
-  margin-bottom: 30px;
-  letter-spacing: 4px;
-}
-
-/* レイアウト */
 .mascot-container {
   display: flex;
   gap: 40px;
   align-items: center;
 }
 
-/* 画像 */
 .mascot-visual {
   width: 40%;
   text-align: center;
   position: relative;
 }
 
-.mascot-visual img {
-  width: 100%;
-  max-width: 260px;
-
-  filter:
-    drop-shadow(0 0 15px rgba(168,85,247,0.5));
+.mascot-visual::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200px;
+  height: 200px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(168,85,247,0.2), transparent 70%);
+  filter: blur(40px);
+  z-index: 0;
 }
 
-/* 説明 */
+.mascot-visual img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 260px;
+  filter: drop-shadow(0 0 15px rgba(168,85,247,0.5));
+}
+
 .mascot-info {
   width: 60%;
 }
@@ -412,29 +311,4 @@ nav a:hover::after {
 .mascot-info p {
   line-height: 1.8;
   margin-bottom: 10px;
-}
-.mascot-visual::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-
-  width: 200px;
-  height: 200px;
-
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-
-  background: radial-gradient(circle, rgba(168,85,247,0.2), transparent 70%);
-  filter: blur(40px);
-
-  z-index: 0;
-}
-
-.mascot-visual img {
-  position: relative;
-  z-index: 1;
-}
-.about-page .page-wrapper {
-  padding-bottom: 120px;
 }
