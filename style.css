@@ -287,28 +287,3 @@ nav a:hover::after {
   line-height: 1.8;
   margin-bottom: 10px;
 }
-/* ===== LOADING ===== */
-#loading {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: #01030a;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-  transition: opacity 1s ease;
-}
-
-#loading.fade-out {
-  opacity: 0;
-}
-
-.loading-text {
-  font-size: 48px;
-  color: #c084fc;
-  letter-spacing: 8px;
-  font-weight: bold;
-}
