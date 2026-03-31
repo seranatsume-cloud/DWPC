@@ -1,18 +1,7 @@
-// ===== イントロ =====
-document.addEventListener("DOMContentLoaded", () => {
-  const intro = document.getElementById("intro");
-
-  if (intro) {
-    intro.addEventListener("click", () => {
-      intro.style.opacity = "0";
-      setTimeout(() => intro.remove(), 800);
-    });
-  }
-});
-
-// ===== グリッチエフェクト =====
+// ===== グリッチ用 =====
 const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
 
+// ===== ナビグリッチ =====
 document.querySelectorAll(".glitch-text").forEach(el => {
   let interval = null;
   const original = el.innerText;
@@ -72,21 +61,9 @@ window.addEventListener("load", () => {
       autoplay: {
         delay: 3000,
         disableOnInteraction: false
-      },
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true
       }
     });
   }
-});
-
-// ===== 上に戻る =====
-document.querySelectorAll(".back-top").forEach(btn => {
-  btn.addEventListener("click", e => {
-    e.preventDefault();
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
 });
 
 // ===== パーティクル =====
@@ -116,10 +93,7 @@ if (canvas) {
 
     particles.forEach(p => {
       p.y -= p.speed;
-
-      if (p.y < 0) {
-        p.y = canvas.height;
-      }
+      if (p.y < 0) p.y = canvas.height;
 
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
@@ -133,7 +107,7 @@ if (canvas) {
   animate();
 }
 
-// ===== ローディング（追加） =====
+// ===== ローディング =====
 document.addEventListener("DOMContentLoaded", () => {
   const loading = document.getElementById("loading");
   const text = document.querySelector(".loading-text");
