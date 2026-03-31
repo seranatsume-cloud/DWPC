@@ -64,20 +64,26 @@ nav a:hover::after {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative; /* 追加: ロゴの位置調整に安定 */
 }
 
 .logo {
-  width: 40vw;
   max-width: 450px;
   min-width: 220px;
+  width: auto; /* 修正: 画面幅依存を解除 */
+  height: auto; /* 高さを自動で維持 */
 
   animation: float 6s ease-in-out infinite;
 
   filter:
     drop-shadow(0 0 25px #a855f7)
     drop-shadow(0 0 50px #a855f7);
+
+  display: block;
+  margin: 0 auto; /* 横中央揃え */
 }
 
+/* 浮遊アニメーション */
 @keyframes float {
   0% { transform: translateY(0px); }
   50% { transform: translateY(-10px); }
