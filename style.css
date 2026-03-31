@@ -12,29 +12,10 @@ body {
   position: relative;
   z-index: 1;
 
-  /* 🌊 深海背景 */
   background:
     radial-gradient(circle at 50% 35%, rgba(120, 80, 255, 0.15), transparent 40%),
     radial-gradient(circle at 50% 75%, rgba(30, 20, 80, 0.35), transparent 70%),
     #01030a;
-}
-
-/* ===== Intro ===== */
-#intro {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background: black;
-  color: #a855f7;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  font-size: 40px;
-  z-index: 9999;
-  cursor: pointer;
-  transition: 1s;
 }
 
 /* ===== ナビ ===== */
@@ -61,7 +42,6 @@ nav a {
   position: relative;
 }
 
-/* 下線 */
 nav a::after {
   content: "";
   position: absolute;
@@ -84,7 +64,6 @@ nav a:hover::after {
   align-items: center;
 }
 
-/* ロゴ */
 .logo {
   width: 35vw;
   max-width: 400px;
@@ -97,7 +76,6 @@ nav a:hover::after {
     drop-shadow(0 0 40px #a855f7);
 }
 
-/* 浮遊 */
 @keyframes float {
   0% { transform: translateY(0px); }
   50% { transform: translateY(-8px); }
@@ -108,10 +86,9 @@ nav a:hover::after {
 .page-wrapper {
   min-height: 100vh;
   padding: 140px 20px 80px;
-
   display: flex;
   flex-direction: column;
-  align-items: center; /* ←修正ポイント */
+  align-items: center;
 }
 
 /* ===== ガラスUI ===== */
@@ -137,7 +114,6 @@ nav a:hover::after {
   transition: 0.4s;
 }
 
-/* ✨ 発光エフェクト */
 .glass-card::before {
   content: "";
   position: absolute;
@@ -169,166 +145,11 @@ nav a:hover::after {
   filter: blur(6px);
 }
 
-/* ===== Aboutカード全体 ===== */
-.about-card {
-  display: flex;
-  gap: 40px;
-  align-items: center;
-
-  padding: 50px;
-  border-radius: 25px;
-
-  background: rgba(20, 10, 30, 0.65);
-  backdrop-filter: blur(25px);
-
-  border: 1px solid rgba(255, 100, 200, 0.2);
-
-  box-shadow:
-    0 0 60px rgba(255, 100, 200, 0.1),
-    0 0 120px rgba(120, 80, 255, 0.15);
-
-  position: relative;
-}
-
-/* ===== 左：立ち絵 ===== */
-.about-visual {
-  width: 300px;
-  min-width: 300px;
-
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-}
-
-.about-visual img {
-  width: 100%;
-  height: auto;
-
-  filter:
-    drop-shadow(0 0 30px rgba(255, 120, 200, 0.3))
-    drop-shadow(0 0 60px rgba(120, 80, 255, 0.3));
-}
-
-/* ===== 右：プロフィール ===== */
-.about-info {
-  flex: 1;
-}
-
-/* 名前 */
-.about-name {
-  font-size: 36px;
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-
-/* 英語名 */
-.about-subname {
-  font-size: 14px;
-  color: #aaa;
-  margin-bottom: 20px;
-  letter-spacing: 2px;
-}
-
-/* 一言 */
-.about-catch {
-  margin-bottom: 20px;
-  color: #f0aaff;
-}
-
-/* ===== プロフィールグリッド ===== */
-.profile-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px 30px;
-
-  margin-bottom: 20px;
-}
-
-.profile-grid p {
-  margin: 0;
-  font-size: 14px;
-}
-
-/* ===== 自己紹介文 ===== */
-.about-textbox {
-  margin-top: 20px;
-  line-height: 1.8;
-  color: #ddd;
-}
-
-/* ===== 注意書きボックス（ピンク枠） ===== */
-.about-note {
-  margin-top: 20px;
-  padding: 15px;
-
-  border-radius: 12px;
-  border: 1px solid rgba(255, 120, 180, 0.4);
-
-  background: rgba(255, 80, 150, 0.08);
-
-  color: #ffb3d9;
-  font-size: 14px;
-}
-
-/* ===== レスポンシブ ===== */
-@media (max-width: 900px) {
-  .about-card {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .about-visual {
-    width: 200px;
-    min-width: auto;
-  }
-
-  .profile-grid {
-    grid-template-columns: 1fr;
-  }
-}
 /* ===== Portfolio ===== */
-.portfolio-title {
-  font-size: 40px;
-  color: #c084fc;
-}
-
-.portfolio-sub {
-  color: #aaa;
-  margin-bottom: 30px;
-}
-
 .swiper {
   width: 100%;
   height: 260px;
   margin-top: 20px;
-}
-
-.swiper-slide {
-  width: 280px;
-  height: 180px;
-
-  border-radius: 15px;
-  overflow: hidden;
-
-  background: rgba(0,0,0,0.4);
-
-  opacity: 0.4;
-  transition: 0.4s;
-}
-
-.swiper-slide-active {
-  transform: scale(1.15);
-  opacity: 1;
-
-  box-shadow: 0 0 40px rgba(168,85,247,0.6);
-}
-
-.slide-dummy {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  color: #c084fc;
 }
 
 /* ===== 戻るボタン ===== */
@@ -349,21 +170,6 @@ nav a:hover::after {
 
   font-size: 22px;
   cursor: pointer;
-  transition: 0.3s;
-}
-
-.back-top:hover {
-  transform: translateY(-5px);
-  box-shadow:
-    0 0 20px rgba(168,85,247,0.8),
-    0 0 60px rgba(192,132,252,0.6);
-}
-
-/* ===== フッター ===== */
-.footer-area {
-  text-align: center;
-  margin-top: 40px;
-  border-radius: 10px;
 }
 
 /* ===== パーティクル ===== */
@@ -373,40 +179,10 @@ nav a:hover::after {
   left: 0;
   width: 100%;
   height: 100%;
-
   pointer-events: none;
   z-index: -1;
 }
 
-/* ===== 画像 ===== */
-img {
-  max-width: 100%;
-}
-@media (max-width: 768px) {
-
-  .about-card {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .about-visual {
-    width: 200px;
-  }
-
-  .profile-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .glass-card {
-    padding: 25px;
-  }
-
-  nav {
-    gap: 15px;
-    font-size: 12px;
-  }
-
-}
 /* ===== LOADING ===== */
 #loading {
   position: fixed;
@@ -420,7 +196,6 @@ img {
   overflow: hidden;
 }
 
-/* ノイズ */
 #loading::after {
   content: "";
   position: absolute;
@@ -440,7 +215,6 @@ img {
   to { transform: translateY(10px); }
 }
 
-/* テキスト */
 .loading-text {
   font-size: 40px;
   letter-spacing: 10px;
@@ -455,7 +229,6 @@ img {
   margin-bottom: 40px;
 }
 
-/* バー */
 .loading-bar {
   width: 60%;
   height: 4px;
@@ -478,7 +251,6 @@ img {
   100% { left: 100%; }
 }
 
-/* フェード */
 #loading.fade-out {
   opacity: 0;
   transition: 1s;
