@@ -330,3 +330,29 @@ header,
   0% { opacity: 0.5; }
   100% { opacity: 1; }
 }
+.company-title {
+  font-size: 36px;
+  color: #c084fc;
+  letter-spacing: 4px;
+}
+
+.company-sub {
+  font-size: 18px;
+  margin-bottom: 40px;
+  color: #a855f7;
+}
+
+.company-text p {
+  margin-bottom: 20px;
+  line-height: 1.8;
+}
+
+/* 不穏テキスト */
+.secret-text {
+  margin-top: 60px;
+  font-size: 14px;
+  color: rgba(255,255,255,0.3);
+  font-style: italic;
+  transform: rotate(-3deg);
+  text-align: right;
+}
