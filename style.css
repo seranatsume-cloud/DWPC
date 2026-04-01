@@ -87,22 +87,17 @@ nav a:hover::after {
 /* ===== ページ共通 ===== */
 .page-wrapper {
   min-height: 100vh;
-  padding: 140px 20px 60px;
+  padding: 140px 20px 80px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-/* Aboutだけ余白 */
-.about-page .page-wrapper {
-  padding-bottom: 140px;
-}
-
-/* ===== ガラスUI ===== */
-.page-wrapper .glass-card {
+/* ===== ガラスUI（重要修正あり） ===== */
+.glass-card {
   width: 100%;
   max-width: 1000px;
-  margin: 20px auto;
+  margin: 0 auto;
 
   padding: 40px;
   border-radius: 25px;
@@ -110,4 +105,281 @@ nav a:hover::after {
   background: rgba(20, 10, 30, 0.6);
   backdrop-filter: blur(25px);
 
-  border: 1px solid rgba(168, 85, 247, 0.
+  border: 1px solid rgba(168, 85, 247, 0.2);
+
+  position: relative;
+  z-index: 1; /* ← 追加 */
+
+  box-shadow:
+    0 10px 40px rgba(0,0,0,0.6),
+    0 0 30px rgba(168, 85, 247, 0.15);
+}
+
+/* ===== ABOUT ===== */
+.about-title-block {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.about-mainname {
+  font-size: 64px;
+  letter-spacing: 4px;
+  margin: 0;
+}
+
+.about-subname-en {
+  font-size: 14px;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 6px;
+  margin-top: 5px;
+}
+
+.about-card {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.about-visual {
+  position: relative;
+  width: 40%;
+  text-align: center;
+  margin-top: -90px;
+}
+
+.about-visual::before {
+  content: "";
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  width: 260px;
+  height: 260px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(168,85,247,0.18), transparent 70%);
+  filter: blur(50px);
+  z-index: 0;
+}
+
+.about-visual img {
+  position: relative;
+  z-index: 1;
+  width: 200%;
+  max-width: 380px;
+  transform: translateY(-40px);
+  filter: drop-shadow(0 0 15px rgba(168,85,247,0.5));
+}
+
+.about-info {
+  width: 60%;
+}
+
+.about-catch {
+  font-size: 18px;
+  color: #c084fc;
+  margin-bottom: 20px;
+}
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.about-textbox {
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.about-note {
+  font-size: 12px;
+  color: rgba(255,255,255,0.5);
+}
+
+/* ===== LINKS ===== */
+.links-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.link-item {
+  display: block;
+  padding: 15px;
+  border-radius: 15px;
+  text-decoration: none;
+  color: white;
+  background: rgba(168, 85, 247, 0.1);
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  transition: 0.3s;
+}
+
+.link-item:hover {
+  background: rgba(168, 85, 247, 0.3);
+  transform: scale(1.05);
+}
+
+/* ===== COMING SOON ===== */
+.coming-soon {
+  margin-top: 80px;
+  font-size: 36px;
+  letter-spacing: 8px;
+  color: #c084fc;
+  animation: flicker 1.5s infinite alternate;
+  text-shadow:
+    0 0 5px #c084fc,
+    0 0 20px #a855f7,
+    0 0 40px #7e22ce;
+}
+
+@keyframes flicker {
+  0% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+/* ===== COMPANY（完全修正版） ===== */
+.company {
+  position: relative;
+  overflow: hidden;
+}
+
+/* 背景ロゴ（修正版） */
+.bg-logo {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 280px;
+  opacity: 0.03;
+  filter: blur(8px);
+
+  z-index: 0;
+  pointer-events: none;
+
+  animation: floatLogo 10s ease-in-out infinite;
+}
+
+@keyframes floatLogo {
+  0% { transform: translate(-50%, -50%) }
+  50% { transform: translate(-50%, -55%) }
+  100% { transform: translate(-50%, -50%) }
+}
+
+/* 前面固定（超重要） */
+.company-title,
+.company-sub,
+.company-text,
+.secret-text {
+  position: relative;
+  z-index: 2;
+}
+
+/* タイトル */
+.company-title {
+  font-size: 36px;
+  color: #c084fc;
+  letter-spacing: 4px;
+}
+
+.company-sub {
+  font-size: 18px;
+  margin-bottom: 40px;
+  color: #a855f7;
+}
+
+.company-text p {
+  margin-bottom: 20px;
+  line-height: 1.8;
+}
+
+/* 不穏テキスト */
+.secret-text {
+  margin-top: 40px;
+  font-size: 14px;
+  color: rgba(255,255,255,0.35);
+  font-style: italic;
+}
+
+/* ===== 戻るボタン ===== */
+.back-top {
+  width: 60px;
+  height: 60px;
+  margin: 40px auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  border: 1px solid rgba(168,85,247,0.4);
+  background: rgba(20,10,30,0.6);
+  backdrop-filter: blur(10px);
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/* ===== LOADING ===== */
+#loading {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at center, #120018, #000);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+}
+
+.loading-text {
+  font-size: 40px;
+  letter-spacing: 10px;
+  color: #ff4df0;
+  text-shadow:
+    0 0 5px #ff4df0,
+    0 0 15px #ff4df0,
+    0 0 30px #a855f7;
+}
+
+#loading.fade-out {
+  opacity: 0;
+  transition: 1s;
+  pointer-events: none;
+}
+
+/* ===== 背景パーティクル ===== */
+#particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+/* ===== スクランブル演出 ===== */
+.scramble {
+  opacity: 0;
+  animation: fadeIn 0.5s forwards;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+/* ===== マスコット画像サイズ修正 ===== */
+.mascot-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mascot-visual img {
+  width: auto;        /* ← これ重要（100%を無効化） */
+  max-width: 180px;   /* ← サイズ制限 */
+  height: auto;       /* ← 比率維持 */
+}
+
+/* ちょい動き（おまけ） */
+.mascot-visual img:hover {
+  transform: scale(1.05);
+  transition: 0.3s;
+}
