@@ -433,5 +433,7 @@ nav a:hover::after {
     font-size: 24px;
     letter-spacing: 4px;
   }
-
+.home-page {
+  background: #000;
+}
 }
