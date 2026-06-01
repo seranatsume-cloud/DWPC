@@ -383,3 +383,55 @@ nav a:hover::after {
   transform: scale(1.05);
   transition: 0.3s;
 }
+
+/* ===== スマホ対応 ===== */
+@media screen and (max-width: 768px) {
+
+  nav {
+    gap: 15px;
+    flex-wrap: wrap;
+    font-size: 12px;
+  }
+
+  .glass-card {
+    width: calc(100% - 40px);
+    padding: 25px;
+  }
+
+  .about-card,
+  .mascot-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about-visual,
+  .about-info,
+  .mascot-visual,
+  .mascot-info {
+    width: 100%;
+  }
+
+  .about-visual {
+    margin-top: 0;
+  }
+
+  .about-visual img {
+    width: 100%;
+    max-width: 250px;
+    transform: none;
+  }
+
+  .profile-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-mainname {
+    font-size: 42px;
+  }
+
+  .coming-soon {
+    font-size: 24px;
+    letter-spacing: 4px;
+  }
+
+}
